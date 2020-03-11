@@ -1,6 +1,6 @@
 import json
 num_ins = 40
-num_rm = 30
+num_rm = 20
 num_term = 4
 cit_num_set = 3
 cst_num_set = 6

@@ -1,0 +1,45 @@
+ROOT-programs
+    {
+    program name:
+        {
+        prefix(program name),
+        options:
+            {
+            title,
+            code,
+            sets
+            }
+        }
+    }
+
+
+
+
+ROOT-courses
+
+
+
+
+ROOT-sets
+
+
+
+
+ROOT-crns
+    crn
+    course
+    component:
+        {
+        'Lecture'/'Lab'/'Other'/NONE:
+            {
+                type
+                hours
+            }
+        }
+    capacity
+    enrollment
+    startDate
+    endDate
+    program
+        prefix
+        sets
