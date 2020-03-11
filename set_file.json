@@ -1,0 +1,470 @@
+{
+  "CIT11": {
+    "set": "CIT11",
+    "program": "CIT",
+    "crns": [
+      "CIT111",
+      "CIT121",
+      "CIT131",
+      "CIT141",
+      "CIT151",
+      "CIT161",
+      "CIT171"
+    ]
+  },
+  "CIT12": {
+    "set": "CIT12",
+    "program": "CIT",
+    "crns": [
+      "CIT112",
+      "CIT122",
+      "CIT132",
+      "CIT142",
+      "CIT152",
+      "CIT162",
+      "CIT172"
+    ]
+  },
+  "CIT13": {
+    "set": "CIT13",
+    "program": "CIT",
+    "crns": [
+      "CIT113",
+      "CIT123",
+      "CIT133",
+      "CIT143",
+      "CIT153",
+      "CIT163",
+      "CIT173"
+    ]
+  },
+  "CST11": {
+    "set": "CST11",
+    "program": "CST",
+    "crns": [
+      "CST111",
+      "CST121",
+      "CST131",
+      "CST141",
+      "CST151",
+      "CST161",
+      "CST171"
+    ]
+  },
+  "CST12": {
+    "set": "CST12",
+    "program": "CST",
+    "crns": [
+      "CST112",
+      "CST122",
+      "CST132",
+      "CST142",
+      "CST152",
+      "CST162",
+      "CST172"
+    ]
+  },
+  "CST13": {
+    "set": "CST13",
+    "program": "CST",
+    "crns": [
+      "CST113",
+      "CST123",
+      "CST133",
+      "CST143",
+      "CST153",
+      "CST163",
+      "CST173"
+    ]
+  },
+  "CST14": {
+    "set": "CST14",
+    "program": "CST",
+    "crns": [
+      "CST114",
+      "CST124",
+      "CST134",
+      "CST144",
+      "CST154",
+      "CST164",
+      "CST174"
+    ]
+  },
+  "CST15": {
+    "set": "CST15",
+    "program": "CST",
+    "crns": [
+      "CST115",
+      "CST125",
+      "CST135",
+      "CST145",
+      "CST155",
+      "CST165",
+      "CST175"
+    ]
+  },
+  "CST16": {
+    "set": "CST16",
+    "program": "CST",
+    "crns": [
+      "CST116",
+      "CST126",
+      "CST136",
+      "CST146",
+      "CST156",
+      "CST166",
+      "CST176"
+    ]
+  },
+  "CIT21": {
+    "set": "CIT21",
+    "program": "CIT",
+    "crns": [
+      "CIT211",
+      "CIT221",
+      "CIT231",
+      "CIT241",
+      "CIT251",
+      "CIT261",
+      "CIT271"
+    ]
+  },
+  "CIT22": {
+    "set": "CIT22",
+    "program": "CIT",
+    "crns": [
+      "CIT212",
+      "CIT222",
+      "CIT232",
+      "CIT242",
+      "CIT252",
+      "CIT262",
+      "CIT272"
+    ]
+  },
+  "CIT23": {
+    "set": "CIT23",
+    "program": "CIT",
+    "crns": [
+      "CIT213",
+      "CIT223",
+      "CIT233",
+      "CIT243",
+      "CIT253",
+      "CIT263",
+      "CIT273"
+    ]
+  },
+  "CST21": {
+    "set": "CST21",
+    "program": "CST",
+    "crns": [
+      "CST211",
+      "CST221",
+      "CST231",
+      "CST241",
+      "CST251",
+      "CST261",
+      "CST271"
+    ]
+  },
+  "CST22": {
+    "set": "CST22",
+    "program": "CST",
+    "crns": [
+      "CST212",
+      "CST222",
+      "CST232",
+      "CST242",
+      "CST252",
+      "CST262",
+      "CST272"
+    ]
+  },
+  "CST23": {
+    "set": "CST23",
+    "program": "CST",
+    "crns": [
+      "CST213",
+      "CST223",
+      "CST233",
+      "CST243",
+      "CST253",
+      "CST263",
+      "CST273"
+    ]
+  },
+  "CST24": {
+    "set": "CST24",
+    "program": "CST",
+    "crns": [
+      "CST214",
+      "CST224",
+      "CST234",
+      "CST244",
+      "CST254",
+      "CST264",
+      "CST274"
+    ]
+  },
+  "CST25": {
+    "set": "CST25",
+    "program": "CST",
+    "crns": [
+      "CST215",
+      "CST225",
+      "CST235",
+      "CST245",
+      "CST255",
+      "CST265",
+      "CST275"
+    ]
+  },
+  "CST26": {
+    "set": "CST26",
+    "program": "CST",
+    "crns": [
+      "CST216",
+      "CST226",
+      "CST236",
+      "CST246",
+      "CST256",
+      "CST266",
+      "CST276"
+    ]
+  },
+  "CIT31": {
+    "set": "CIT31",
+    "program": "CIT",
+    "crns": [
+      "CIT311",
+      "CIT321",
+      "CIT331",
+      "CIT341",
+      "CIT351",
+      "CIT361",
+      "CIT371"
+    ]
+  },
+  "CIT32": {
+    "set": "CIT32",
+    "program": "CIT",
+    "crns": [
+      "CIT312",
+      "CIT322",
+      "CIT332",
+      "CIT342",
+      "CIT352",
+      "CIT362",
+      "CIT372"
+    ]
+  },
+  "CIT33": {
+    "set": "CIT33",
+    "program": "CIT",
+    "crns": [
+      "CIT313",
+      "CIT323",
+      "CIT333",
+      "CIT343",
+      "CIT353",
+      "CIT363",
+      "CIT373"
+    ]
+  },
+  "CST31": {
+    "set": "CST31",
+    "program": "CST",
+    "crns": [
+      "CST311",
+      "CST321",
+      "CST331",
+      "CST341",
+      "CST351",
+      "CST361",
+      "CST371"
+    ]
+  },
+  "CST32": {
+    "set": "CST32",
+    "program": "CST",
+    "crns": [
+      "CST312",
+      "CST322",
+      "CST332",
+      "CST342",
+      "CST352",
+      "CST362",
+      "CST372"
+    ]
+  },
+  "CST33": {
+    "set": "CST33",
+    "program": "CST",
+    "crns": [
+      "CST313",
+      "CST323",
+      "CST333",
+      "CST343",
+      "CST353",
+      "CST363",
+      "CST373"
+    ]
+  },
+  "CST34": {
+    "set": "CST34",
+    "program": "CST",
+    "crns": [
+      "CST314",
+      "CST324",
+      "CST334",
+      "CST344",
+      "CST354",
+      "CST364",
+      "CST374"
+    ]
+  },
+  "CST35": {
+    "set": "CST35",
+    "program": "CST",
+    "crns": [
+      "CST315",
+      "CST325",
+      "CST335",
+      "CST345",
+      "CST355",
+      "CST365",
+      "CST375"
+    ]
+  },
+  "CST36": {
+    "set": "CST36",
+    "program": "CST",
+    "crns": [
+      "CST316",
+      "CST326",
+      "CST336",
+      "CST346",
+      "CST356",
+      "CST366",
+      "CST376"
+    ]
+  },
+  "CIT41": {
+    "set": "CIT41",
+    "program": "CIT",
+    "crns": [
+      "CIT411",
+      "CIT421",
+      "CIT431",
+      "CIT441",
+      "CIT451",
+      "CIT461",
+      "CIT471"
+    ]
+  },
+  "CIT42": {
+    "set": "CIT42",
+    "program": "CIT",
+    "crns": [
+      "CIT412",
+      "CIT422",
+      "CIT432",
+      "CIT442",
+      "CIT452",
+      "CIT462",
+      "CIT472"
+    ]
+  },
+  "CIT43": {
+    "set": "CIT43",
+    "program": "CIT",
+    "crns": [
+      "CIT413",
+      "CIT423",
+      "CIT433",
+      "CIT443",
+      "CIT453",
+      "CIT463",
+      "CIT473"
+    ]
+  },
+  "CST41": {
+    "set": "CST41",
+    "program": "CST",
+    "crns": [
+      "CST411",
+      "CST421",
+      "CST431",
+      "CST441",
+      "CST451",
+      "CST461",
+      "CST471"
+    ]
+  },
+  "CST42": {
+    "set": "CST42",
+    "program": "CST",
+    "crns": [
+      "CST412",
+      "CST422",
+      "CST432",
+      "CST442",
+      "CST452",
+      "CST462",
+      "CST472"
+    ]
+  },
+  "CST43": {
+    "set": "CST43",
+    "program": "CST",
+    "crns": [
+      "CST413",
+      "CST423",
+      "CST433",
+      "CST443",
+      "CST453",
+      "CST463",
+      "CST473"
+    ]
+  },
+  "CST44": {
+    "set": "CST44",
+    "program": "CST",
+    "crns": [
+      "CST414",
+      "CST424",
+      "CST434",
+      "CST444",
+      "CST454",
+      "CST464",
+      "CST474"
+    ]
+  },
+  "CST45": {
+    "set": "CST45",
+    "program": "CST",
+    "crns": [
+      "CST415",
+      "CST425",
+      "CST435",
+      "CST445",
+      "CST455",
+      "CST465",
+      "CST475"
+    ]
+  },
+  "CST46": {
+    "set": "CST46",
+    "program": "CST",
+    "crns": [
+      "CST416",
+      "CST426",
+      "CST436",
+      "CST446",
+      "CST456",
+      "CST466",
+      "CST476"
+    ]
+  }
+}

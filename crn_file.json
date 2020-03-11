@@ -1,0 +1,1262 @@
+{
+  "CIT111": {
+    "crn": "CIT111",
+    "course": "CIT11",
+    "cap": 30
+  },
+  "CIT112": {
+    "crn": "CIT112",
+    "course": "CIT11",
+    "cap": 30
+  },
+  "CIT113": {
+    "crn": "CIT113",
+    "course": "CIT11",
+    "cap": 30
+  },
+  "CST111": {
+    "crn": "CST111",
+    "course": "CST11",
+    "cap": 30
+  },
+  "CST112": {
+    "crn": "CST112",
+    "course": "CST11",
+    "cap": 30
+  },
+  "CST113": {
+    "crn": "CST113",
+    "course": "CST11",
+    "cap": 30
+  },
+  "CST114": {
+    "crn": "CST114",
+    "course": "CST11",
+    "cap": 30
+  },
+  "CST115": {
+    "crn": "CST115",
+    "course": "CST11",
+    "cap": 30
+  },
+  "CST116": {
+    "crn": "CST116",
+    "course": "CST11",
+    "cap": 30
+  },
+  "CIT121": {
+    "crn": "CIT121",
+    "course": "CIT12",
+    "cap": 30
+  },
+  "CIT122": {
+    "crn": "CIT122",
+    "course": "CIT12",
+    "cap": 30
+  },
+  "CIT123": {
+    "crn": "CIT123",
+    "course": "CIT12",
+    "cap": 30
+  },
+  "CST121": {
+    "crn": "CST121",
+    "course": "CST12",
+    "cap": 30
+  },
+  "CST122": {
+    "crn": "CST122",
+    "course": "CST12",
+    "cap": 30
+  },
+  "CST123": {
+    "crn": "CST123",
+    "course": "CST12",
+    "cap": 30
+  },
+  "CST124": {
+    "crn": "CST124",
+    "course": "CST12",
+    "cap": 30
+  },
+  "CST125": {
+    "crn": "CST125",
+    "course": "CST12",
+    "cap": 30
+  },
+  "CST126": {
+    "crn": "CST126",
+    "course": "CST12",
+    "cap": 30
+  },
+  "CIT131": {
+    "crn": "CIT131",
+    "course": "CIT13",
+    "cap": 30
+  },
+  "CIT132": {
+    "crn": "CIT132",
+    "course": "CIT13",
+    "cap": 30
+  },
+  "CIT133": {
+    "crn": "CIT133",
+    "course": "CIT13",
+    "cap": 30
+  },
+  "CST131": {
+    "crn": "CST131",
+    "course": "CST13",
+    "cap": 30
+  },
+  "CST132": {
+    "crn": "CST132",
+    "course": "CST13",
+    "cap": 30
+  },
+  "CST133": {
+    "crn": "CST133",
+    "course": "CST13",
+    "cap": 30
+  },
+  "CST134": {
+    "crn": "CST134",
+    "course": "CST13",
+    "cap": 30
+  },
+  "CST135": {
+    "crn": "CST135",
+    "course": "CST13",
+    "cap": 30
+  },
+  "CST136": {
+    "crn": "CST136",
+    "course": "CST13",
+    "cap": 30
+  },
+  "CIT141": {
+    "crn": "CIT141",
+    "course": "CIT14",
+    "cap": 30
+  },
+  "CIT142": {
+    "crn": "CIT142",
+    "course": "CIT14",
+    "cap": 30
+  },
+  "CIT143": {
+    "crn": "CIT143",
+    "course": "CIT14",
+    "cap": 30
+  },
+  "CST141": {
+    "crn": "CST141",
+    "course": "CST14",
+    "cap": 30
+  },
+  "CST142": {
+    "crn": "CST142",
+    "course": "CST14",
+    "cap": 30
+  },
+  "CST143": {
+    "crn": "CST143",
+    "course": "CST14",
+    "cap": 30
+  },
+  "CST144": {
+    "crn": "CST144",
+    "course": "CST14",
+    "cap": 30
+  },
+  "CST145": {
+    "crn": "CST145",
+    "course": "CST14",
+    "cap": 30
+  },
+  "CST146": {
+    "crn": "CST146",
+    "course": "CST14",
+    "cap": 30
+  },
+  "CIT151": {
+    "crn": "CIT151",
+    "course": "CIT15",
+    "cap": 30
+  },
+  "CIT152": {
+    "crn": "CIT152",
+    "course": "CIT15",
+    "cap": 30
+  },
+  "CIT153": {
+    "crn": "CIT153",
+    "course": "CIT15",
+    "cap": 30
+  },
+  "CST151": {
+    "crn": "CST151",
+    "course": "CST15",
+    "cap": 30
+  },
+  "CST152": {
+    "crn": "CST152",
+    "course": "CST15",
+    "cap": 30
+  },
+  "CST153": {
+    "crn": "CST153",
+    "course": "CST15",
+    "cap": 30
+  },
+  "CST154": {
+    "crn": "CST154",
+    "course": "CST15",
+    "cap": 30
+  },
+  "CST155": {
+    "crn": "CST155",
+    "course": "CST15",
+    "cap": 30
+  },
+  "CST156": {
+    "crn": "CST156",
+    "course": "CST15",
+    "cap": 30
+  },
+  "CIT161": {
+    "crn": "CIT161",
+    "course": "CIT16",
+    "cap": 30
+  },
+  "CIT162": {
+    "crn": "CIT162",
+    "course": "CIT16",
+    "cap": 30
+  },
+  "CIT163": {
+    "crn": "CIT163",
+    "course": "CIT16",
+    "cap": 30
+  },
+  "CST161": {
+    "crn": "CST161",
+    "course": "CST16",
+    "cap": 30
+  },
+  "CST162": {
+    "crn": "CST162",
+    "course": "CST16",
+    "cap": 30
+  },
+  "CST163": {
+    "crn": "CST163",
+    "course": "CST16",
+    "cap": 30
+  },
+  "CST164": {
+    "crn": "CST164",
+    "course": "CST16",
+    "cap": 30
+  },
+  "CST165": {
+    "crn": "CST165",
+    "course": "CST16",
+    "cap": 30
+  },
+  "CST166": {
+    "crn": "CST166",
+    "course": "CST16",
+    "cap": 30
+  },
+  "CIT171": {
+    "crn": "CIT171",
+    "course": "CIT17",
+    "cap": 30
+  },
+  "CIT172": {
+    "crn": "CIT172",
+    "course": "CIT17",
+    "cap": 30
+  },
+  "CIT173": {
+    "crn": "CIT173",
+    "course": "CIT17",
+    "cap": 30
+  },
+  "CST171": {
+    "crn": "CST171",
+    "course": "CST17",
+    "cap": 30
+  },
+  "CST172": {
+    "crn": "CST172",
+    "course": "CST17",
+    "cap": 30
+  },
+  "CST173": {
+    "crn": "CST173",
+    "course": "CST17",
+    "cap": 30
+  },
+  "CST174": {
+    "crn": "CST174",
+    "course": "CST17",
+    "cap": 30
+  },
+  "CST175": {
+    "crn": "CST175",
+    "course": "CST17",
+    "cap": 30
+  },
+  "CST176": {
+    "crn": "CST176",
+    "course": "CST17",
+    "cap": 30
+  },
+  "CIT211": {
+    "crn": "CIT211",
+    "course": "CIT21",
+    "cap": 30
+  },
+  "CIT212": {
+    "crn": "CIT212",
+    "course": "CIT21",
+    "cap": 30
+  },
+  "CIT213": {
+    "crn": "CIT213",
+    "course": "CIT21",
+    "cap": 30
+  },
+  "CST211": {
+    "crn": "CST211",
+    "course": "CST21",
+    "cap": 30
+  },
+  "CST212": {
+    "crn": "CST212",
+    "course": "CST21",
+    "cap": 30
+  },
+  "CST213": {
+    "crn": "CST213",
+    "course": "CST21",
+    "cap": 30
+  },
+  "CST214": {
+    "crn": "CST214",
+    "course": "CST21",
+    "cap": 30
+  },
+  "CST215": {
+    "crn": "CST215",
+    "course": "CST21",
+    "cap": 30
+  },
+  "CST216": {
+    "crn": "CST216",
+    "course": "CST21",
+    "cap": 30
+  },
+  "CIT221": {
+    "crn": "CIT221",
+    "course": "CIT22",
+    "cap": 30
+  },
+  "CIT222": {
+    "crn": "CIT222",
+    "course": "CIT22",
+    "cap": 30
+  },
+  "CIT223": {
+    "crn": "CIT223",
+    "course": "CIT22",
+    "cap": 30
+  },
+  "CST221": {
+    "crn": "CST221",
+    "course": "CST22",
+    "cap": 30
+  },
+  "CST222": {
+    "crn": "CST222",
+    "course": "CST22",
+    "cap": 30
+  },
+  "CST223": {
+    "crn": "CST223",
+    "course": "CST22",
+    "cap": 30
+  },
+  "CST224": {
+    "crn": "CST224",
+    "course": "CST22",
+    "cap": 30
+  },
+  "CST225": {
+    "crn": "CST225",
+    "course": "CST22",
+    "cap": 30
+  },
+  "CST226": {
+    "crn": "CST226",
+    "course": "CST22",
+    "cap": 30
+  },
+  "CIT231": {
+    "crn": "CIT231",
+    "course": "CIT23",
+    "cap": 30
+  },
+  "CIT232": {
+    "crn": "CIT232",
+    "course": "CIT23",
+    "cap": 30
+  },
+  "CIT233": {
+    "crn": "CIT233",
+    "course": "CIT23",
+    "cap": 30
+  },
+  "CST231": {
+    "crn": "CST231",
+    "course": "CST23",
+    "cap": 30
+  },
+  "CST232": {
+    "crn": "CST232",
+    "course": "CST23",
+    "cap": 30
+  },
+  "CST233": {
+    "crn": "CST233",
+    "course": "CST23",
+    "cap": 30
+  },
+  "CST234": {
+    "crn": "CST234",
+    "course": "CST23",
+    "cap": 30
+  },
+  "CST235": {
+    "crn": "CST235",
+    "course": "CST23",
+    "cap": 30
+  },
+  "CST236": {
+    "crn": "CST236",
+    "course": "CST23",
+    "cap": 30
+  },
+  "CIT241": {
+    "crn": "CIT241",
+    "course": "CIT24",
+    "cap": 30
+  },
+  "CIT242": {
+    "crn": "CIT242",
+    "course": "CIT24",
+    "cap": 30
+  },
+  "CIT243": {
+    "crn": "CIT243",
+    "course": "CIT24",
+    "cap": 30
+  },
+  "CST241": {
+    "crn": "CST241",
+    "course": "CST24",
+    "cap": 30
+  },
+  "CST242": {
+    "crn": "CST242",
+    "course": "CST24",
+    "cap": 30
+  },
+  "CST243": {
+    "crn": "CST243",
+    "course": "CST24",
+    "cap": 30
+  },
+  "CST244": {
+    "crn": "CST244",
+    "course": "CST24",
+    "cap": 30
+  },
+  "CST245": {
+    "crn": "CST245",
+    "course": "CST24",
+    "cap": 30
+  },
+  "CST246": {
+    "crn": "CST246",
+    "course": "CST24",
+    "cap": 30
+  },
+  "CIT251": {
+    "crn": "CIT251",
+    "course": "CIT25",
+    "cap": 30
+  },
+  "CIT252": {
+    "crn": "CIT252",
+    "course": "CIT25",
+    "cap": 30
+  },
+  "CIT253": {
+    "crn": "CIT253",
+    "course": "CIT25",
+    "cap": 30
+  },
+  "CST251": {
+    "crn": "CST251",
+    "course": "CST25",
+    "cap": 30
+  },
+  "CST252": {
+    "crn": "CST252",
+    "course": "CST25",
+    "cap": 30
+  },
+  "CST253": {
+    "crn": "CST253",
+    "course": "CST25",
+    "cap": 30
+  },
+  "CST254": {
+    "crn": "CST254",
+    "course": "CST25",
+    "cap": 30
+  },
+  "CST255": {
+    "crn": "CST255",
+    "course": "CST25",
+    "cap": 30
+  },
+  "CST256": {
+    "crn": "CST256",
+    "course": "CST25",
+    "cap": 30
+  },
+  "CIT261": {
+    "crn": "CIT261",
+    "course": "CIT26",
+    "cap": 30
+  },
+  "CIT262": {
+    "crn": "CIT262",
+    "course": "CIT26",
+    "cap": 30
+  },
+  "CIT263": {
+    "crn": "CIT263",
+    "course": "CIT26",
+    "cap": 30
+  },
+  "CST261": {
+    "crn": "CST261",
+    "course": "CST26",
+    "cap": 30
+  },
+  "CST262": {
+    "crn": "CST262",
+    "course": "CST26",
+    "cap": 30
+  },
+  "CST263": {
+    "crn": "CST263",
+    "course": "CST26",
+    "cap": 30
+  },
+  "CST264": {
+    "crn": "CST264",
+    "course": "CST26",
+    "cap": 30
+  },
+  "CST265": {
+    "crn": "CST265",
+    "course": "CST26",
+    "cap": 30
+  },
+  "CST266": {
+    "crn": "CST266",
+    "course": "CST26",
+    "cap": 30
+  },
+  "CIT271": {
+    "crn": "CIT271",
+    "course": "CIT27",
+    "cap": 30
+  },
+  "CIT272": {
+    "crn": "CIT272",
+    "course": "CIT27",
+    "cap": 30
+  },
+  "CIT273": {
+    "crn": "CIT273",
+    "course": "CIT27",
+    "cap": 30
+  },
+  "CST271": {
+    "crn": "CST271",
+    "course": "CST27",
+    "cap": 30
+  },
+  "CST272": {
+    "crn": "CST272",
+    "course": "CST27",
+    "cap": 30
+  },
+  "CST273": {
+    "crn": "CST273",
+    "course": "CST27",
+    "cap": 30
+  },
+  "CST274": {
+    "crn": "CST274",
+    "course": "CST27",
+    "cap": 30
+  },
+  "CST275": {
+    "crn": "CST275",
+    "course": "CST27",
+    "cap": 30
+  },
+  "CST276": {
+    "crn": "CST276",
+    "course": "CST27",
+    "cap": 30
+  },
+  "CIT311": {
+    "crn": "CIT311",
+    "course": "CIT31",
+    "cap": 30
+  },
+  "CIT312": {
+    "crn": "CIT312",
+    "course": "CIT31",
+    "cap": 30
+  },
+  "CIT313": {
+    "crn": "CIT313",
+    "course": "CIT31",
+    "cap": 30
+  },
+  "CST311": {
+    "crn": "CST311",
+    "course": "CST31",
+    "cap": 30
+  },
+  "CST312": {
+    "crn": "CST312",
+    "course": "CST31",
+    "cap": 30
+  },
+  "CST313": {
+    "crn": "CST313",
+    "course": "CST31",
+    "cap": 30
+  },
+  "CST314": {
+    "crn": "CST314",
+    "course": "CST31",
+    "cap": 30
+  },
+  "CST315": {
+    "crn": "CST315",
+    "course": "CST31",
+    "cap": 30
+  },
+  "CST316": {
+    "crn": "CST316",
+    "course": "CST31",
+    "cap": 30
+  },
+  "CIT321": {
+    "crn": "CIT321",
+    "course": "CIT32",
+    "cap": 30
+  },
+  "CIT322": {
+    "crn": "CIT322",
+    "course": "CIT32",
+    "cap": 30
+  },
+  "CIT323": {
+    "crn": "CIT323",
+    "course": "CIT32",
+    "cap": 30
+  },
+  "CST321": {
+    "crn": "CST321",
+    "course": "CST32",
+    "cap": 30
+  },
+  "CST322": {
+    "crn": "CST322",
+    "course": "CST32",
+    "cap": 30
+  },
+  "CST323": {
+    "crn": "CST323",
+    "course": "CST32",
+    "cap": 30
+  },
+  "CST324": {
+    "crn": "CST324",
+    "course": "CST32",
+    "cap": 30
+  },
+  "CST325": {
+    "crn": "CST325",
+    "course": "CST32",
+    "cap": 30
+  },
+  "CST326": {
+    "crn": "CST326",
+    "course": "CST32",
+    "cap": 30
+  },
+  "CIT331": {
+    "crn": "CIT331",
+    "course": "CIT33",
+    "cap": 30
+  },
+  "CIT332": {
+    "crn": "CIT332",
+    "course": "CIT33",
+    "cap": 30
+  },
+  "CIT333": {
+    "crn": "CIT333",
+    "course": "CIT33",
+    "cap": 30
+  },
+  "CST331": {
+    "crn": "CST331",
+    "course": "CST33",
+    "cap": 30
+  },
+  "CST332": {
+    "crn": "CST332",
+    "course": "CST33",
+    "cap": 30
+  },
+  "CST333": {
+    "crn": "CST333",
+    "course": "CST33",
+    "cap": 30
+  },
+  "CST334": {
+    "crn": "CST334",
+    "course": "CST33",
+    "cap": 30
+  },
+  "CST335": {
+    "crn": "CST335",
+    "course": "CST33",
+    "cap": 30
+  },
+  "CST336": {
+    "crn": "CST336",
+    "course": "CST33",
+    "cap": 30
+  },
+  "CIT341": {
+    "crn": "CIT341",
+    "course": "CIT34",
+    "cap": 30
+  },
+  "CIT342": {
+    "crn": "CIT342",
+    "course": "CIT34",
+    "cap": 30
+  },
+  "CIT343": {
+    "crn": "CIT343",
+    "course": "CIT34",
+    "cap": 30
+  },
+  "CST341": {
+    "crn": "CST341",
+    "course": "CST34",
+    "cap": 30
+  },
+  "CST342": {
+    "crn": "CST342",
+    "course": "CST34",
+    "cap": 30
+  },
+  "CST343": {
+    "crn": "CST343",
+    "course": "CST34",
+    "cap": 30
+  },
+  "CST344": {
+    "crn": "CST344",
+    "course": "CST34",
+    "cap": 30
+  },
+  "CST345": {
+    "crn": "CST345",
+    "course": "CST34",
+    "cap": 30
+  },
+  "CST346": {
+    "crn": "CST346",
+    "course": "CST34",
+    "cap": 30
+  },
+  "CIT351": {
+    "crn": "CIT351",
+    "course": "CIT35",
+    "cap": 30
+  },
+  "CIT352": {
+    "crn": "CIT352",
+    "course": "CIT35",
+    "cap": 30
+  },
+  "CIT353": {
+    "crn": "CIT353",
+    "course": "CIT35",
+    "cap": 30
+  },
+  "CST351": {
+    "crn": "CST351",
+    "course": "CST35",
+    "cap": 30
+  },
+  "CST352": {
+    "crn": "CST352",
+    "course": "CST35",
+    "cap": 30
+  },
+  "CST353": {
+    "crn": "CST353",
+    "course": "CST35",
+    "cap": 30
+  },
+  "CST354": {
+    "crn": "CST354",
+    "course": "CST35",
+    "cap": 30
+  },
+  "CST355": {
+    "crn": "CST355",
+    "course": "CST35",
+    "cap": 30
+  },
+  "CST356": {
+    "crn": "CST356",
+    "course": "CST35",
+    "cap": 30
+  },
+  "CIT361": {
+    "crn": "CIT361",
+    "course": "CIT36",
+    "cap": 30
+  },
+  "CIT362": {
+    "crn": "CIT362",
+    "course": "CIT36",
+    "cap": 30
+  },
+  "CIT363": {
+    "crn": "CIT363",
+    "course": "CIT36",
+    "cap": 30
+  },
+  "CST361": {
+    "crn": "CST361",
+    "course": "CST36",
+    "cap": 30
+  },
+  "CST362": {
+    "crn": "CST362",
+    "course": "CST36",
+    "cap": 30
+  },
+  "CST363": {
+    "crn": "CST363",
+    "course": "CST36",
+    "cap": 30
+  },
+  "CST364": {
+    "crn": "CST364",
+    "course": "CST36",
+    "cap": 30
+  },
+  "CST365": {
+    "crn": "CST365",
+    "course": "CST36",
+    "cap": 30
+  },
+  "CST366": {
+    "crn": "CST366",
+    "course": "CST36",
+    "cap": 30
+  },
+  "CIT371": {
+    "crn": "CIT371",
+    "course": "CIT37",
+    "cap": 30
+  },
+  "CIT372": {
+    "crn": "CIT372",
+    "course": "CIT37",
+    "cap": 30
+  },
+  "CIT373": {
+    "crn": "CIT373",
+    "course": "CIT37",
+    "cap": 30
+  },
+  "CST371": {
+    "crn": "CST371",
+    "course": "CST37",
+    "cap": 30
+  },
+  "CST372": {
+    "crn": "CST372",
+    "course": "CST37",
+    "cap": 30
+  },
+  "CST373": {
+    "crn": "CST373",
+    "course": "CST37",
+    "cap": 30
+  },
+  "CST374": {
+    "crn": "CST374",
+    "course": "CST37",
+    "cap": 30
+  },
+  "CST375": {
+    "crn": "CST375",
+    "course": "CST37",
+    "cap": 30
+  },
+  "CST376": {
+    "crn": "CST376",
+    "course": "CST37",
+    "cap": 30
+  },
+  "CIT411": {
+    "crn": "CIT411",
+    "course": "CIT41",
+    "cap": 30
+  },
+  "CIT412": {
+    "crn": "CIT412",
+    "course": "CIT41",
+    "cap": 30
+  },
+  "CIT413": {
+    "crn": "CIT413",
+    "course": "CIT41",
+    "cap": 30
+  },
+  "CST411": {
+    "crn": "CST411",
+    "course": "CST41",
+    "cap": 30
+  },
+  "CST412": {
+    "crn": "CST412",
+    "course": "CST41",
+    "cap": 30
+  },
+  "CST413": {
+    "crn": "CST413",
+    "course": "CST41",
+    "cap": 30
+  },
+  "CST414": {
+    "crn": "CST414",
+    "course": "CST41",
+    "cap": 30
+  },
+  "CST415": {
+    "crn": "CST415",
+    "course": "CST41",
+    "cap": 30
+  },
+  "CST416": {
+    "crn": "CST416",
+    "course": "CST41",
+    "cap": 30
+  },
+  "CIT421": {
+    "crn": "CIT421",
+    "course": "CIT42",
+    "cap": 30
+  },
+  "CIT422": {
+    "crn": "CIT422",
+    "course": "CIT42",
+    "cap": 30
+  },
+  "CIT423": {
+    "crn": "CIT423",
+    "course": "CIT42",
+    "cap": 30
+  },
+  "CST421": {
+    "crn": "CST421",
+    "course": "CST42",
+    "cap": 30
+  },
+  "CST422": {
+    "crn": "CST422",
+    "course": "CST42",
+    "cap": 30
+  },
+  "CST423": {
+    "crn": "CST423",
+    "course": "CST42",
+    "cap": 30
+  },
+  "CST424": {
+    "crn": "CST424",
+    "course": "CST42",
+    "cap": 30
+  },
+  "CST425": {
+    "crn": "CST425",
+    "course": "CST42",
+    "cap": 30
+  },
+  "CST426": {
+    "crn": "CST426",
+    "course": "CST42",
+    "cap": 30
+  },
+  "CIT431": {
+    "crn": "CIT431",
+    "course": "CIT43",
+    "cap": 30
+  },
+  "CIT432": {
+    "crn": "CIT432",
+    "course": "CIT43",
+    "cap": 30
+  },
+  "CIT433": {
+    "crn": "CIT433",
+    "course": "CIT43",
+    "cap": 30
+  },
+  "CST431": {
+    "crn": "CST431",
+    "course": "CST43",
+    "cap": 30
+  },
+  "CST432": {
+    "crn": "CST432",
+    "course": "CST43",
+    "cap": 30
+  },
+  "CST433": {
+    "crn": "CST433",
+    "course": "CST43",
+    "cap": 30
+  },
+  "CST434": {
+    "crn": "CST434",
+    "course": "CST43",
+    "cap": 30
+  },
+  "CST435": {
+    "crn": "CST435",
+    "course": "CST43",
+    "cap": 30
+  },
+  "CST436": {
+    "crn": "CST436",
+    "course": "CST43",
+    "cap": 30
+  },
+  "CIT441": {
+    "crn": "CIT441",
+    "course": "CIT44",
+    "cap": 30
+  },
+  "CIT442": {
+    "crn": "CIT442",
+    "course": "CIT44",
+    "cap": 30
+  },
+  "CIT443": {
+    "crn": "CIT443",
+    "course": "CIT44",
+    "cap": 30
+  },
+  "CST441": {
+    "crn": "CST441",
+    "course": "CST44",
+    "cap": 30
+  },
+  "CST442": {
+    "crn": "CST442",
+    "course": "CST44",
+    "cap": 30
+  },
+  "CST443": {
+    "crn": "CST443",
+    "course": "CST44",
+    "cap": 30
+  },
+  "CST444": {
+    "crn": "CST444",
+    "course": "CST44",
+    "cap": 30
+  },
+  "CST445": {
+    "crn": "CST445",
+    "course": "CST44",
+    "cap": 30
+  },
+  "CST446": {
+    "crn": "CST446",
+    "course": "CST44",
+    "cap": 30
+  },
+  "CIT451": {
+    "crn": "CIT451",
+    "course": "CIT45",
+    "cap": 30
+  },
+  "CIT452": {
+    "crn": "CIT452",
+    "course": "CIT45",
+    "cap": 30
+  },
+  "CIT453": {
+    "crn": "CIT453",
+    "course": "CIT45",
+    "cap": 30
+  },
+  "CST451": {
+    "crn": "CST451",
+    "course": "CST45",
+    "cap": 30
+  },
+  "CST452": {
+    "crn": "CST452",
+    "course": "CST45",
+    "cap": 30
+  },
+  "CST453": {
+    "crn": "CST453",
+    "course": "CST45",
+    "cap": 30
+  },
+  "CST454": {
+    "crn": "CST454",
+    "course": "CST45",
+    "cap": 30
+  },
+  "CST455": {
+    "crn": "CST455",
+    "course": "CST45",
+    "cap": 30
+  },
+  "CST456": {
+    "crn": "CST456",
+    "course": "CST45",
+    "cap": 30
+  },
+  "CIT461": {
+    "crn": "CIT461",
+    "course": "CIT46",
+    "cap": 30
+  },
+  "CIT462": {
+    "crn": "CIT462",
+    "course": "CIT46",
+    "cap": 30
+  },
+  "CIT463": {
+    "crn": "CIT463",
+    "course": "CIT46",
+    "cap": 30
+  },
+  "CST461": {
+    "crn": "CST461",
+    "course": "CST46",
+    "cap": 30
+  },
+  "CST462": {
+    "crn": "CST462",
+    "course": "CST46",
+    "cap": 30
+  },
+  "CST463": {
+    "crn": "CST463",
+    "course": "CST46",
+    "cap": 30
+  },
+  "CST464": {
+    "crn": "CST464",
+    "course": "CST46",
+    "cap": 30
+  },
+  "CST465": {
+    "crn": "CST465",
+    "course": "CST46",
+    "cap": 30
+  },
+  "CST466": {
+    "crn": "CST466",
+    "course": "CST46",
+    "cap": 30
+  },
+  "CIT471": {
+    "crn": "CIT471",
+    "course": "CIT47",
+    "cap": 30
+  },
+  "CIT472": {
+    "crn": "CIT472",
+    "course": "CIT47",
+    "cap": 30
+  },
+  "CIT473": {
+    "crn": "CIT473",
+    "course": "CIT47",
+    "cap": 30
+  },
+  "CST471": {
+    "crn": "CST471",
+    "course": "CST47",
+    "cap": 30
+  },
+  "CST472": {
+    "crn": "CST472",
+    "course": "CST47",
+    "cap": 30
+  },
+  "CST473": {
+    "crn": "CST473",
+    "course": "CST47",
+    "cap": 30
+  },
+  "CST474": {
+    "crn": "CST474",
+    "course": "CST47",
+    "cap": 30
+  },
+  "CST475": {
+    "crn": "CST475",
+    "course": "CST47",
+    "cap": 30
+  },
+  "CST476": {
+    "crn": "CST476",
+    "course": "CST47",
+    "cap": 30
+  }
+}
