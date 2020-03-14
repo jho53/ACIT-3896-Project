@@ -1,7 +1,11 @@
 from schedule_structure.schedule import Schedule
 from schedule_structure.timeblock import Timeblock
+import itertools
 
 import os
+import sys
+
+sys.setrecursionlimit(10**6)
 
 temp_info = []
 
@@ -19,19 +23,47 @@ def testing(current_path):
                                        timeblock_list[4][:-1])
             sch_1.add_timeblock(temp_timeblock)
 
-        sch_1.display_schedule()
+        timeblock_combinations = list(
+            itertools.combinations(
+                sch_1.get_timeblock_list(),
+                2))  # Takes all combinations of timeblocks in schedule
+
+        for ele in timeblock_combinations:
+            try:
+                # ele[0] for 1st timeblock, ele[1] for 2nd timeblock
+                print(ele[0].get_time_block(), ele[1].get_time_block())
+
+                if ((ele[0].get_instructor() == ele[1].get_instructor()) and
+                    (ele[0].day == ele[1].day)) and (
+                        ele[0].timeslot == ele[1].timeslot) and (ele[0].room !=
+                                                                 ele[1].room):
+                    print("Instructors cannot be in two rooms at once")
+                    return False
+
+                if (ele[0].get_instructor() == ele[1].get_instructor()) and (
+                        ele[0].day == ele[1].day) and (ele[0].room[0] !=
+                                                       ele[1].room[0]):
+                    print(
+                        "Instructors cannot be on 2 campuses on the same day")
+                    return False
+
+            except Exception as error:
+                print(error)
+                break
+
+        return True
 
 
 def main():
     '''
     **-8:30-5:20.
-    -Instructors cannot be on 2 campuses on the same day
-    -Instructors can’t be in two rooms at once… except 5-week courses for CST and project courses for CIT maybe? Not sure on the 5-week for FSWD as we have never run it before.
+    **-Instructors cannot be on 2 campuses on the same day
+    **-Instructors can’t be in two rooms at once… except 5-week courses for CST and project courses for CIT maybe? Not sure on the 5-week for FSWD as we have never run it before.
     -CIT electives should be on Thursday.
     -CST DTC should be biased to 645, 655, and 665.
     -CIT DTC should be biased to the rooms in the tech hub.
     -CST and CIT bias for certain courses may be different (for example math instructors don’t live 645, 655, 665 for lecture).
-    -Students may not have more than 5 hours in a row
+    # -Students may not have more than 5 hours in a row
     -Students should not have more than a 3 hour break
     -CST lectures should be 2 hours in a row, except for lectures with 3 hours. Lectures with 3 hours should have 1 hour on Monday and the other 2 on another day.
     -CST should have labs after all lectures. If that can’t happen labs before all lectures. If it is 3 hour lecture then labs can be between the 1 and 2 hour preferred. If that can’t happen then ok, but really don’t want to e some labs lecture some labs
@@ -43,7 +75,6 @@ def main():
     '''
     Jimmy's notes:
         Time based hard constraints are basically solved, just need to make sure dummy data is compatible
-        
     '''
 
 
