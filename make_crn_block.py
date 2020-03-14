@@ -15,7 +15,6 @@ rm_list = []
 for i in rm_data:
     rm_list.append(i)
 
-
 time_table = []
 # (crn, ins_id, rm_id, day, time)
 room_time = []
@@ -42,13 +41,7 @@ for i in crn_data:
 
     room_time.append(temp_rm_d_t)
     ins_time.append(temp_ins_time)
-    temp_block = [
-        i,
-        temp_ins,
-        rm_list[temp_rm],
-        temp_day,
-        temp_time
-    ]
+    temp_block = [i, temp_ins, rm_list[temp_rm], temp_day, temp_time]
     time_table.append(temp_block)
 
 with open('timetable.csv', 'w', newline='') as file:
