@@ -1,19 +1,17 @@
 from schedule_structure.schedule import Schedule
 from schedule_structure.timeblock import Timeblock
+import time
 import itertools
 
 import os
 import sys
 
-sys.setrecursionlimit(10**6)
-
 temp_info = []
+sch_1 = Schedule()
 
 
 def testing(current_path):
     current_path += "\\timetable.csv"
-
-    sch_1 = Schedule()
 
     with open(current_path, "r") as read_csv_file:
         for line in read_csv_file:
@@ -23,35 +21,39 @@ def testing(current_path):
                                        timeblock_list[4][:-1])
             sch_1.add_timeblock(temp_timeblock)
 
-        timeblock_combinations = list(
-            itertools.combinations(
-                sch_1.get_timeblock_list(),
-                2))  # Takes all combinations of timeblocks in schedule
 
-        for ele in timeblock_combinations:
-            try:
-                # ele[0] for 1st timeblock, ele[1] for 2nd timeblock
+def hardreq_validation():
+    timeblock_combinations = list(
+        itertools.combinations(
+            sch_1.get_timeblock_list(),
+            2))  # Takes all combinations of timeblocks in schedule
+
+    for ele in timeblock_combinations:
+        try:
+            # ele[0] for 1st timeblock, ele[1] for 2nd timeblock
+
+            # Validation 1: Instructors cannot be in two rooms at once
+            if ((ele[0].get_instructor() == ele[1].get_instructor()) and
+                (ele[0].day == ele[1].day)) and (
+                    ele[0].timeslot == ele[1].timeslot) and (ele[0].room !=
+                                                             ele[1].room):
                 print(ele[0].get_time_block(), ele[1].get_time_block())
+                print("Instructors cannot be in two rooms at once")
+                return False
 
-                if ((ele[0].get_instructor() == ele[1].get_instructor()) and
-                    (ele[0].day == ele[1].day)) and (
-                        ele[0].timeslot == ele[1].timeslot) and (ele[0].room !=
-                                                                 ele[1].room):
-                    print("Instructors cannot be in two rooms at once")
-                    return False
+            # Validation 2: Instructors cannot be on 2 campuses on same day
+            if (ele[0].get_instructor() == ele[1].get_instructor()) and (
+                    ele[0].day == ele[1].day) and (ele[0].room[0] !=
+                                                   ele[1].room[0]):
+                print(ele[0].get_time_block(), ele[1].get_time_block())
+                print("Instructors cannot be on 2 campuses on the same day")
+                return False
 
-                if (ele[0].get_instructor() == ele[1].get_instructor()) and (
-                        ele[0].day == ele[1].day) and (ele[0].room[0] !=
-                                                       ele[1].room[0]):
-                    print(
-                        "Instructors cannot be on 2 campuses on the same day")
-                    return False
+        except Exception as error:
+            print(error)
+            return False
 
-            except Exception as error:
-                print(error)
-                break
-
-        return True
+    return True
 
 
 def main():
@@ -80,3 +82,6 @@ def main():
 
 if __name__ == "__main__":
     testing(os.getcwd())
+    start_time = time.time()
+    print(hardreq_validation())
+    print(time.time() - start_time)
