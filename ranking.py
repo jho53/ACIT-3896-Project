@@ -1,21 +1,22 @@
 import json
 import csv
 
-# pref in Json file are follow format:
+# pref in Json file is follow format:
 # [{"location": {"like": "", "disklike": ""}}, {"time": {"like": "xx,xx,xx", "dislike": "xx"}}]
+# If one pref["like"] is satisfied, score + 1, else if one pref["dislike"] is matched, score -1
 
 
 # Check if instructor has any preference
 def has_pref(ins_id, ins_data):
-    if ins_data[ins_id]["pref"] is not None and len(ins_data[ins_id]["pref"]) > 0:
-        return True
-    return False
+    return ins_data[ins_id]["pref"] is not None and len(ins_data[ins_id]["pref"]) > 0
 
 
 # Match pref with current row in the csv file
 def match_pref(row, ins_data, score):
-    preferences = ins_data[row[1]]["pref"]
-    # location
+    # row[1] is the instructor id
+    instructor_id = row[1]
+    preferences = ins_data[instructor_id]["pref"]
+    # preferences[0] - first element is location
     if preferences[0]["location"]["like"] != "":
         if preferences[0]["location"]["like"] in row[2]:
             score += 1
@@ -24,6 +25,7 @@ def match_pref(row, ins_data, score):
 
     time_str = row[3] + row[4]
 
+    # preferences[1] - second element is time
     if preferences[1]["time"]["like"] != "":
         if time_str in preferences[1]["time"]["like"]:
             score += 1
