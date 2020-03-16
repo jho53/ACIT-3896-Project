@@ -4,11 +4,14 @@ import operator
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 class Schedule:
     """ Schedule Class """
 
+
 class Validation:
     """ Check if meets the hard requirement """
+
 
 class Fitness:
     def __init__(self, schedule):
@@ -17,19 +20,22 @@ class Fitness:
         self.fitness = 0.0
 
     def rank(self):
-        #calculate the total ranking score of the schedule
+        # Calculate the total ranking score of the schedule
         self.ranking = 12345
         return self.ranking
 
     def scheduleFitness(self):
-        #fitness is the lower, the better
-        #maybe call validator here, if cannot pass validation, set the fitness as 1 (based on the formula we may use, it should be a large number)
+        # Fitness is the lower, the better
+        # Maybe call validator here, if cannot pass validation, set the fitness as 1 (based on the formula we may use, it should be a large number)
         self.fitness = 1 / float(self.rank())
         return self.fitness
 
+
 class GA:
     """ GA """
-    def __init__(self, population, popSize, eliteSize, mutationRate, generations):
+
+    def __init__(self, population, popSize, eliteSize, mutationRate,
+                 generations):
         self.population = population
         self.popSize = popSize
         self.eliteSize = eliteSize
@@ -38,7 +44,7 @@ class GA:
 
     def createSchedule(self, schedule):
         """ generate a new schedule (which is used to add more schedule to the population) """
-        #based on the data structure, we will randomize the data in the schedule to create a new schedule
+        # Based on the data structure, we will randomize the data in the schedule to create a new schedule
         schedule = random.sample(schedule, len(schedule))
         return schedule
 
@@ -52,23 +58,24 @@ class GA:
     def rankSchedule(self, population):
         """ calling the ranking system to calculate the ranking score for each schedule in the population """
         fitnessResults = {}
-        for i in range(0,len(population)):
+        for i in range(0, len(population)):
             fitnessResults[i] = Fitness(population[i]).scheduleFitness()
-        return sorted(fitnessResults.items(), key = operator.itemgetter(1), reverse = True)
+        return sorted(
+            fitnessResults.items(), key=operator.itemgetter(1), reverse=True)
 
     def selection(self, popRanked, eliteSize):
         """ selection function I copied from other GA selection, they should all be similar"""
         selectionResults = []
-        df = pd.DataFrame(np.array(popRanked), columns=["Index","Fitness"])
+        df = pd.DataFrame(np.array(popRanked), columns=["Index", "Fitness"])
         df['cum_sum'] = df.Fitness.cumsum()
-        df['cum_perc'] = 100*df.cum_sum/df.Fitness.sum()
+        df['cum_perc'] = 100 * df.cum_sum / df.Fitness.sum()
 
         for i in range(0, eliteSize):
             selectionResults.append(popRanked[i][0])
         for i in range(0, len(popRanked) - eliteSize):
-            pick = 100*random.random()
+            pick = 100 * random.random()
             for i in range(0, len(popRanked)):
-                if pick <= df.iat[i,3]:
+                if pick <= df.iat[i, 3]:
                     selectionResults.append(popRanked[i][0])
                     break
         return selectionResults
@@ -107,17 +114,17 @@ class GA:
         length = len(matingpool) - eliteSize
         pool = random.sample(matingpool, len(matingpool))
 
-        for i in range(0,eliteSize):
+        for i in range(0, eliteSize):
             children.append(matingpool[i])
 
         for i in range(0, length):
-            child = self.breed(pool[i], pool[len(matingpool)-i-1])
+            child = self.breed(pool[i], pool[len(matingpool) - i - 1])
             children.append(child)
         return children
 
     def mutate(self, individual, mutationRate):
         """ individual mutation """
-        #based on data structure, lets decide how will we do the mutation 
+        # Based on data structure, lets decide how will we do the mutation
         return individual
 
     def mutatePopulation(self, population, mutationRate):
@@ -137,5 +144,3 @@ class GA:
         children = self.breedPopulation(matingpool, eliteSize)
         nextGeneration = self.mutatePopulation(children, mutationRate)
         return nextGeneration
-
-
