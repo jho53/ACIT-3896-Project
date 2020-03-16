@@ -2,6 +2,7 @@ from schedule_structure.schedule import Schedule
 from schedule_structure.timeblock import Timeblock
 import time
 import itertools
+import make_crn_block as mk
 
 import os
 
@@ -9,6 +10,8 @@ temp_info = []
 
 # sch_1 = Schedule()
 
+def testing(current_path):
+    current_path += "\\new_timetable.csv"
 
 # def testing(current_path):
 #     current_path += "\\timetable.csv"
@@ -50,6 +53,8 @@ def hardreq_validation(schedule):
             schedule.get_timeblock_list(),
             2))  # Takes all combinations of timeblocks in schedule
 
+    violation_counter = 0
+
     for ele in timeblock_combinations:
         try:
             # ele[0] for 1st timeblock, ele[1] for 2nd timeblock
@@ -61,6 +66,9 @@ def hardreq_validation(schedule):
                                                              ele[1].room):
                 print(ele[0].get_time_block(), ele[1].get_time_block())
                 print("Instructors cannot be in two rooms at once")
+                violation_counter += 1
+                # mk.make_new_timetable()
+                # return False
 
             # Validation 2: Instructors cannot be on 2 campuses on same day
             if (ele[0].get_instructor() == ele[1].get_instructor()) and (
@@ -68,16 +76,26 @@ def hardreq_validation(schedule):
                                                    ele[1].room[0]):
                 print(ele[0].get_time_block(), ele[1].get_time_block())
                 print("Instructors cannot be on 2 campuses on the same day")
+                violation_counter += 1
+                # mk.make_new_timetable()
+                # return False
 
         except Exception as error:
             print(error)
             return False
 
-    return True
+    return violation_counter
+    # return True
 
 
 if __name__ == "__main__":
     testing(os.getcwd())
     start_time = time.time()
-    print(hardreq_validation(sch_1))
+    # x = hardreq_validation()
+    # while x == False:
+    #     del sch_1
+    #     sch_1 = Schedule()
+    #     testing(os.getcwd())
+    #     hardreq_validation()
+    print(hardreq_validation())
     print(time.time() - start_time)
