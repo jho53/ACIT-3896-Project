@@ -1,0 +1,46 @@
+{
+  "CIT1": {
+    "id": "CIT1",
+    "time": 30
+  },
+
+  "CIT2": {
+    "id": "CIT2",
+    "cap": 30
+  },
+
+  "CIT3": {
+    "id": "CIT3",
+    "cap": 30
+  },
+
+  "CIT4": {
+    "id": "CIT1",
+    "cap": 30
+  },
+
+  "CIT5": {
+    "id": "CIT2",
+    "cap": 30
+  },
+
+  "CIT3": {
+    "id": "CIT3",
+    "cap": 30
+  },
+    "CIT1": {
+    "id": "CIT1",
+    "cap": 30
+  },
+
+  "CIT2": {
+    "id": "CIT2",
+    "cap": 30
+  },
+
+  "CIT3": {
+    "id": "CIT3",
+    "cap": 30
+  }
+
+}

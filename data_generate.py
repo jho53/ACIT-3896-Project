@@ -10,7 +10,11 @@ num_course = 7
 # Instructor
 ins_list = {}
 for i in range(num_ins):
-    temp_ins = {"id": i + 1, "course": [], "pref": []}
+    temp_ins = {
+        "id": i + 1,
+        "course": [],
+        "pref": []
+    }
     ins_list[i + 1] = temp_ins
 
 # with open("ins_file.json", "w") as write_file:
@@ -42,11 +46,19 @@ set_list = {}
 for term in range(num_term):
     for set1 in range(cit_num_set):
         temp_set_id = "CIT" + str(term + 1) + str(set1 + 1)
-        temp_set = {"set": temp_set_id, "program": "CIT", "crns": []}
+        temp_set = {
+            "set": temp_set_id,
+            "program": "CIT",
+            "crns": []
+        }
         set_list[temp_set_id] = temp_set
     for set2 in range(cst_num_set):
         temp_set_id = "CST" + str(term + 1) + str(set2 + 1)
-        temp_set = {"set": temp_set_id, "program": "CST", "crns": []}
+        temp_set = {
+            "set": temp_set_id,
+            "program": "CST",
+            "crns": []
+        }
         set_list[temp_set_id] = temp_set
 
 # Crn(Course)

@@ -2,6 +2,7 @@ from schedule_structure.schedule import Schedule
 from schedule_structure.timeblock import Timeblock
 import time
 import itertools
+import make_crn_block as mk
 
 import os
 import sys
@@ -11,7 +12,7 @@ sch_1 = Schedule()
 
 
 def testing(current_path):
-    current_path += "\\timetable.csv"
+    current_path += "\\new_timetable.csv"
 
     with open(current_path, "r") as read_csv_file:
         for line in read_csv_file:
@@ -39,6 +40,7 @@ def hardreq_validation():
                                                              ele[1].room):
                 print(ele[0].get_time_block(), ele[1].get_time_block())
                 print("Instructors cannot be in two rooms at once")
+                mk.make_new_timetable()
                 return False
 
             # Validation 2: Instructors cannot be on 2 campuses on same day
@@ -47,6 +49,7 @@ def hardreq_validation():
                                                    ele[1].room[0]):
                 print(ele[0].get_time_block(), ele[1].get_time_block())
                 print("Instructors cannot be on 2 campuses on the same day")
+                mk.make_new_timetable()
                 return False
 
         except Exception as error:
@@ -83,5 +86,11 @@ def main():
 if __name__ == "__main__":
     testing(os.getcwd())
     start_time = time.time()
+    x = hardreq_validation()
+    while x == False:
+        del sch_1
+        sch_1 = Schedule()
+        testing(os.getcwd())
+        hardreq_validation()
     print(hardreq_validation())
     print(time.time() - start_time)

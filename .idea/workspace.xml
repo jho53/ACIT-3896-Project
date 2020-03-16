@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4c77820d-2fb8-4307-816a-d1963c469af6" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/edit_ins.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ins_file.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6817">
+              <caret line="401" column="1" lean-forward="true" selection-start-line="401" selection-start-column="1" selection-end-line="401" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/make_crn_block.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="724">
+              <caret line="73" column="38" lean-forward="true" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hardreq_validation.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="82" column="7" lean-forward="true" selection-start-line="82" selection-start-column="7" selection-end-line="82" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>{&quot;1&quot;: {&quot;id&quot;: 1, &quot;course&quot;: [&quot;CIT27&quot;, &quot;CST32&quot;, &quot;CST45&quot;], &quot;pref&quot;: []}, &quot;2&quot;: {&quot;id&quot;: 2, &quot;course&quot;: [&quot;CIT23&quot;, &quot;CST11&quot;, &quot;CST21&quot;, &quot;CST22&quot;, &quot;CST23&quot;], &quot;pref&quot;: []}, &quot;3&quot;: {&quot;id&quot;: 3, &quot;course&quot;: [&quot;CIT14&quot;, &quot;CIT23&quot;, &quot;CST17&quot;, &quot;CST25&quot;, &quot;CST25&quot;, &quot;CST37&quot;, &quot;CST42&quot;, &quot;CST45&quot;], &quot;pref&quot;: []}, &quot;4&quot;: {&quot;id&quot;: 4, &quot;course&quot;: [&quot;CIT16&quot;, &quot;CIT31&quot;, &quot;CST15&quot;, &quot;CST16&quot;, &quot;CST25&quot;, &quot;CST27&quot;], &quot;pref&quot;: []}, &quot;5&quot;: {&quot;id&quot;: 5, &quot;course&quot;: [&quot;CIT14&quot;, &quot;CIT41&quot;, &quot;CST31&quot;, &quot;CST35&quot;], &quot;pref&quot;: []}, &quot;6&quot;: {&quot;id&quot;: 6, &quot;course&quot;: [&quot;CIT33&quot;, &quot;CIT46&quot;, &quot;CST13&quot;, &quot;CST27&quot;, &quot;CST34&quot;, &quot;CST43&quot;, &quot;CST43&quot;, &quot;CST47&quot;], &quot;pref&quot;: []}, &quot;7&quot;: {&quot;id&quot;: 7, &quot;course&quot;: [&quot;CIT24&quot;, &quot;CIT31&quot;, &quot;CIT34&quot;, &quot;CIT47&quot;, &quot;CST14&quot;, &quot;CST26&quot;, &quot;CST33&quot;], &quot;pref&quot;: []}, &quot;8&quot;: {&quot;id&quot;: 8, &quot;course&quot;: [&quot;CIT12&quot;, &quot;CIT32&quot;, &quot;CIT46&quot;, &quot;CST11&quot;, &quot;CST34&quot;, &quot;CST34&quot;], &quot;pref&quot;: []}, &quot;9&quot;: {&quot;id&quot;: 9, &quot;course&quot;: [&quot;CIT11&quot;, &quot;CIT45&quot;, &quot;CST26&quot;, &quot;CST31&quot;, &quot;CST42&quot;, &quot;CST44&quot;], &quot;pref&quot;: []}, &quot;10&quot;: {&quot;id&quot;: 10, &quot;course&quot;: [&quot;CST11&quot;, &quot;CST21&quot;, &quot;CST23&quot;, &quot;CST26&quot;, &quot;CST31&quot;, &quot;CST32&quot;, &quot;CST33&quot;], &quot;pref&quot;: []}, &quot;11&quot;: {&quot;id&quot;: 11, &quot;course&quot;: [&quot;CIT36&quot;, &quot;CST14&quot;, &quot;CST15&quot;, &quot;CST21&quot;, &quot;CST25&quot;, &quot;CST46&quot;], &quot;pref&quot;: []}, &quot;12&quot;: {&quot;id&quot;: 12, &quot;course&quot;: [&quot;CIT21&quot;, &quot;CIT32&quot;, &quot;CIT36&quot;, &quot;CST22&quot;, &quot;CST23&quot;, &quot;CST33&quot;, &quot;CST35&quot;, &quot;CST47&quot;], &quot;pref&quot;: []}, &quot;13&quot;: {&quot;id&quot;: 13, &quot;course&quot;: [&quot;CIT13&quot;, &quot;CIT15&quot;, &quot;CIT15&quot;, &quot;CIT24&quot;, &quot;CST12&quot;, &quot;CST27&quot;, &quot;CST34&quot;], &quot;pref&quot;: []}, &quot;14&quot;: {&quot;id&quot;: 14, &quot;course&quot;: [&quot;CIT22&quot;, &quot;CIT23&quot;, &quot;CIT36&quot;, &quot;CST16&quot;, &quot;CST35&quot;, &quot;CST37&quot;, &quot;CST45&quot;, &quot;CST47&quot;], &quot;pref&quot;: []}, &quot;15&quot;: {&quot;id&quot;: 15, &quot;course&quot;: [&quot;CST15&quot;, &quot;CST22&quot;, &quot;CST41&quot;, &quot;CST44&quot;], &quot;pref&quot;: []}, &quot;16&quot;: {&quot;id&quot;: 16, &quot;course&quot;: [&quot;CIT47&quot;, &quot;CST11&quot;, &quot;CST36&quot;, &quot;CST37&quot;, &quot;CST41&quot;, &quot;CST46&quot;], &quot;pref&quot;: []}, &quot;17&quot;: {&quot;id&quot;: 17, &quot;course&quot;: [&quot;CST14&quot;, &quot;CST37&quot;], &quot;pref&quot;: []}, &quot;18&quot;: {&quot;id&quot;: 18, &quot;course&quot;: [&quot;CIT25&quot;, &quot;CIT25&quot;, &quot;CIT43&quot;, &quot;CIT43&quot;, &quot;CST11&quot;, &quot;CST16&quot;, &quot;CST22&quot;, &quot;CST32&quot;, &quot;CST41&quot;, &quot;CST43&quot;, &quot;CST46&quot;], &quot;pref&quot;: []}, &quot;19&quot;: {&quot;id&quot;: 19, &quot;course&quot;: [&quot;CIT21&quot;, &quot;CIT34&quot;, &quot;CST13&quot;, &quot;CST16&quot;, &quot;CST33&quot;, &quot;CST41&quot;, &quot;CST44&quot;, &quot;CST45&quot;, &quot;CST45&quot;], &quot;pref&quot;: []}, &quot;20&quot;: {&quot;id&quot;: 20, &quot;course&quot;: [&quot;CIT12&quot;, &quot;CIT17&quot;, &quot;CIT44&quot;, &quot;CST15&quot;, &quot;CST24&quot;, &quot;CST25&quot;, &quot;CST46&quot;], &quot;pref&quot;: []}, &quot;21&quot;: {&quot;id&quot;: 21, &quot;course&quot;: [&quot;CIT11&quot;, &quot;CIT27&quot;, &quot;CIT41&quot;, &quot;CIT45&quot;, &quot;CST37&quot;], &quot;pref&quot;: []}, &quot;22&quot;: {&quot;id&quot;: 22, &quot;course&quot;: [&quot;CIT11&quot;, &quot;CST11&quot;, &quot;CST12&quot;, &quot;CST35&quot;], &quot;pref&quot;: []}, &quot;23&quot;: {&quot;id&quot;: 23, &quot;course&quot;: [&quot;CIT46&quot;, &quot;CST16&quot;, &quot;CST22&quot;, &quot;CST23&quot;, &quot;CST37&quot;], &quot;pref&quot;: []}, &quot;24&quot;: {&quot;id&quot;: 24, &quot;course&quot;: [&quot;CST12&quot;, &quot;CST13&quot;, &quot;CST34&quot;, &quot;CST41&quot;, &quot;CST42&quot;], &quot;pref&quot;: []}, &quot;25&quot;: {&quot;id&quot;: 25, &quot;course&quot;: [&quot;CIT25&quot;, &quot;CIT26&quot;, &quot;CIT31&quot;, &quot;CIT45&quot;, &quot;CST23&quot;, &quot;CST24&quot;, &quot;CST26&quot;], &quot;pref&quot;: []}, &quot;26&quot;: {&quot;id&quot;: 26, &quot;course&quot;: [&quot;CIT13&quot;, &quot;CIT16&quot;, &quot;CIT17&quot;, &quot;CST21&quot;, &quot;CST26&quot;, &quot;CST36&quot;, &quot;CST43&quot;], &quot;pref&quot;: []}, &quot;27&quot;: {&quot;id&quot;: 27, &quot;course&quot;: [&quot;CIT14&quot;, &quot;CIT44&quot;, &quot;CST15&quot;, &quot;CST17&quot;, &quot;CST22&quot;, &quot;CST23&quot;, &quot;CST24&quot;, &quot;CST36&quot;], &quot;pref&quot;: []}, &quot;28&quot;: {&quot;id&quot;: 28, &quot;course&quot;: [&quot;CIT34&quot;, &quot;CST12&quot;, &quot;CST31&quot;, &quot;CST32&quot;, &quot;CST34&quot;, &quot;CST36&quot;, &quot;CST43&quot;], &quot;pref&quot;: []}, &quot;29&quot;: {&quot;id&quot;: 29, &quot;course&quot;: [&quot;CIT27&quot;, &quot;CIT41&quot;, &quot;CST13&quot;, &quot;CST17&quot;, &quot;CST27&quot;, &quot;CST35&quot;, &quot;CST42&quot;], &quot;pref&quot;: []}, &quot;30&quot;: {&quot;id&quot;: 30, &quot;course&quot;: [&quot;CIT16&quot;, &quot;CIT22&quot;, &quot;CST27&quot;, &quot;CST31&quot;], &quot;pref&quot;: []}, &quot;31&quot;: {&quot;id&quot;: 31, &quot;course&quot;: [&quot;CIT15&quot;, &quot;CST12&quot;, &quot;CST17&quot;, &quot;CST24&quot;, &quot;CST44&quot;, &quot;CST47&quot;], &quot;pref&quot;: []}, &quot;32&quot;: {&quot;id&quot;: 32, &quot;course&quot;: [&quot;CIT12&quot;, &quot;CIT33&quot;, &quot;CIT37&quot;, &quot;CST25&quot;, &quot;CST31&quot;, &quot;CST33&quot;, &quot;CST47&quot;], &quot;pref&quot;: []}, &quot;33&quot;: {&quot;id&quot;: 33, &quot;course&quot;: [&quot;CIT35&quot;, &quot;CIT37&quot;, &quot;CST13&quot;, &quot;CST13&quot;, &quot;CST17&quot;, &quot;CST35&quot;], &quot;pref&quot;: []}, &quot;34&quot;: {&quot;id&quot;: 34, &quot;course&quot;: [&quot;CIT13&quot;, &quot;CIT26&quot;, &quot;CIT26&quot;, &quot;CIT42&quot;, &quot;CIT42&quot;, &quot;CST16&quot;, &quot;CST21&quot;, &quot;CST26&quot;, &quot;CST41&quot;], &quot;pref&quot;: []}, &quot;35&quot;: {&quot;id&quot;: 35, &quot;course&quot;: [&quot;CIT21&quot;, &quot;CIT42&quot;, &quot;CIT47&quot;, &quot;CST27&quot;, &quot;CST32&quot;, &quot;CST33&quot;, &quot;CST36&quot;, &quot;CST42&quot;], &quot;pref&quot;: []}, &quot;36&quot;: {&quot;id&quot;: 36, &quot;course&quot;: [&quot;CIT17&quot;, &quot;CIT32&quot;, &quot;CIT33&quot;, &quot;CST17&quot;, &quot;CST43&quot;], &quot;pref&quot;: []}, &quot;37&quot;: {&quot;id&quot;: 37, &quot;course&quot;: [&quot;CIT22&quot;, &quot;CIT37&quot;, &quot;CST15&quot;, &quot;CST32&quot;, &quot;CST36&quot;, &quot;CST44&quot;, &quot;CST45&quot;], &quot;pref&quot;: []}, &quot;38&quot;: {&quot;id&quot;: 38, &quot;course&quot;: [&quot;CIT24&quot;, &quot;CIT35&quot;, &quot;CST14&quot;, &quot;CST14&quot;, &quot;CST42&quot;], &quot;pref&quot;: []}, &quot;39&quot;: {&quot;id&quot;: 39, &quot;course&quot;: [&quot;CIT35&quot;, &quot;CIT44&quot;, &quot;CST12&quot;, &quot;CST24&quot;, &quot;CST24&quot;, &quot;CST44&quot;, &quot;CST46&quot;, &quot;CST46&quot;, &quot;CST47&quot;], &quot;pref&quot;: []}, &quot;40&quot;: {&quot;id&quot;: 40, &quot;course&quot;: [&quot;CIT43&quot;, &quot;CST14&quot;, &quot;CST21&quot;], &quot;pref&quot;: []}}</find>
+      <find>&quot;CIT35&quot;,</find>
+      <find>&quot;CIT15&quot;,</find>
+      <find>CST32</find>
+      <find>CST45</find>
+      <find>CST22</find>
+      <find>CST11</find>
+      <find>CST21</find>
+      <find>CST23</find>
+      <find>CST17</find>
+      <find>CST25</find>
+      <find>CST37</find>
+      <find>CST31</find>
+      <find>CST15</find>
+      <find>CST47</find>
+      <find>CST43</find>
+      <find>CST35</find>
+      <find>CST12</find>
+      <find>CST41</find>
+      <find>CST42</find>
+      <find>CST33</find>
+      <find>CIT31</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/data_generate.py" />
+        <option value="$PROJECT_DIR$/data files/time_file.json" />
+        <option value="$PROJECT_DIR$/edit_ins.py" />
+        <option value="$PROJECT_DIR$/ins_file.json" />
+        <option value="$PROJECT_DIR$/hardreq_validation.py" />
+        <option value="$PROJECT_DIR$/make_crn_block.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="380" />
+    <option name="y" value="23" />
+    <option name="width" value="1636" />
+    <option name="height" value="928" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="ACIT-3896-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ACIT-3896-Project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ACIT-3896-Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ACIT-3896-Project" type="462c0819:PsiDirectoryNode" />
+              <item name="data files" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.hardreq_validation">
+    <configuration name="edit_ins" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ACIT-3896-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/edit_ins.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="hardreq_validation" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ACIT-3896-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/hardreq_validation.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="make_crn_block" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ACIT-3896-Project" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/make_crn_block.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.hardreq_validation" />
+        <item itemvalue="Python.make_crn_block" />
+        <item itemvalue="Python.edit_ins" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4c77820d-2fb8-4307-816a-d1963c469af6" name="Default Changelist" comment="" />
+      <created>1584230321841</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1584230321841</updated>
+      <workItem from="1584230324140" duration="11635000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="11635000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Python Console" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ACIT_3896_Project$edit_ins.coverage" NAME="edit_ins Coverage Results" MODIFIED="1584316955806" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ACIT_3896_Project$hardreq_validation.coverage" NAME="hardreq_validation Coverage Results" MODIFIED="1584320490401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/ACIT_3896_Project$make_crn_block.coverage" NAME="make_crn_block Coverage Results" MODIFIED="1584320407679" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/data files/time_file.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="7" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_generate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" selection-start-line="19" selection-end-line="20" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/new_timetable.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data files/ins_file.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="14" lean-forward="true" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/edit_ins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ins_file.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6817">
+          <caret line="401" column="1" lean-forward="true" selection-start-line="401" selection-start-column="1" selection-end-line="401" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hardreq_validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="82" column="7" lean-forward="true" selection-start-line="82" selection-start-column="7" selection-end-line="82" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/make_crn_block.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="724">
+          <caret line="73" column="38" lean-forward="true" selection-start-line="73" selection-start-column="38" selection-end-line="73" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
