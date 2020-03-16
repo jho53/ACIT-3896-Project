@@ -55,9 +55,9 @@ def score_time_table():
     print("total score is: " + str(score))
 
 
-def main():
-    score_time_table()
-
-
-if __name__ == "__main__":
-    main()
+# def main():
+#     score_time_table()
+#
+#
+# if __name__ == "__main__":
+#     main()
