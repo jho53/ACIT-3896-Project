@@ -4,13 +4,8 @@ import operator
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
-class Schedule:
-    """ Schedule Class """
-
-
-class Validation:
-    """ Check if meets the hard requirement """
+from schedule_structure.schedule import Schedule
+from hardreq_validation import hardreq_validation
 
 
 class Fitness:
