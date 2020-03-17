@@ -2,12 +2,12 @@
   "1": {
     "id": 1,
     "course": [],
-    "pref": [{"location": {"like": "B", "dislike": ""}}, {"time": {"like": "51,41,22", "dislike": "12"}}]
+    "pref": []
   },
   "2": {
     "id": 2,
     "course": [],
-    "pref": [{"location": {"like": "", "dislike": "B"}}, {"time": {"like": "52,31,21", "dislike": "22"}}]
+    "pref": []
   },
   "3": {
     "id": 3,
@@ -17,17 +17,17 @@
   "4": {
     "id": 4,
     "course": [],
-    "pref": [{"location": {"like": "D", "dislike": ""}}, {"time": {"like": "21,31,12", "dislike": "42"}}]
+    "pref": []
   },
   "5": {
     "id": 5,
     "course": [],
-    "pref": [{"location": {"like": "B", "dislike": ""}}, {"time": {"like": "41,11,13", "dislike": "12"}}]
+    "pref": []
   },
   "6": {
     "id": 6,
     "course": [],
-    "pref": [{"location": {"like": "", "dislike": "B"}}, {"time": {"like": "11,31,12", "dislike": ""}}]
+    "pref": []
   },
   "7": {
     "id": 7,
@@ -37,12 +37,12 @@
   "8": {
     "id": 8,
     "course": [],
-    "pref": [{"location": {"like": "D", "dislike": ""}}, {"time": {"like": "41,11", "dislike": "12"}}]
+    "pref": []
   },
   "9": {
     "id": 9,
     "course": [],
-    "pref": [{"location": {"like": "B", "dislike": ""}}, {"time": {"like": "31,41,52", "dislike": "53"}}]
+    "pref": []
   },
   "10": {
     "id": 10,
@@ -152,7 +152,7 @@
   "31": {
     "id": 31,
     "course": [],
-    "pref": [{"location": {"like": "B", "dislike": ""}}, {"time": {"like": "41,11,13", "dislike": "52"}}]
+    "pref": []
   },
   "32": {
     "id": 32,
@@ -182,7 +182,7 @@
   "37": {
     "id": 37,
     "course": [],
-    "pref": [{"location": {"like": "", "dislike": "B"}}, {"time": {"like": "41,31,32", "dislike": "12"}}]
+    "pref": []
   },
   "38": {
     "id": 38,
