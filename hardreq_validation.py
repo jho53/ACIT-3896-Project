@@ -8,21 +8,19 @@ import os
 
 temp_info = []
 
-# sch_1 = Schedule()
+sch_1 = Schedule()
+
 
 def testing(current_path):
     current_path += "\\new_timetable.csv"
 
-# def testing(current_path):
-#     current_path += "\\timetable.csv"
-
-#     with open(current_path, "r") as read_csv_file:
-#         for line in read_csv_file:
-#             timeblock_list = line.split(",")
-#             temp_timeblock = Timeblock(timeblock_list[0], timeblock_list[1],
-#                                        timeblock_list[2], timeblock_list[3],
-#                                        timeblock_list[4][:-1])
-#             sch_1.add_timeblock(temp_timeblock)
+    with open(current_path, "r") as read_csv_file:
+        for line in read_csv_file:
+            timeblock_list = line.split(",")
+            temp_timeblock = Timeblock(timeblock_list[0], timeblock_list[1],
+                                       timeblock_list[2], timeblock_list[3],
+                                       timeblock_list[4][:-1])
+            sch_1.add_timeblock(temp_timeblock)
 
 
 def hardreq_validation(schedule):
@@ -80,6 +78,16 @@ def hardreq_validation(schedule):
                 # mk.make_new_timetable()
                 # return False
 
+            # Validation 3: Each set should only have 2 classes for CIT
+
+            # Validation 4: Electives must be on thursday for CIT
+
+            # Validation 5: ISSP must be on Friday for CIT for term 3 + 4
+
+            # Validation 6: Students cannot have more than 5 hour break
+
+            # Validation 7: Wednesday should always be a short day
+
         except Exception as error:
             print(error)
             return False
@@ -97,5 +105,5 @@ if __name__ == "__main__":
     #     sch_1 = Schedule()
     #     testing(os.getcwd())
     #     hardreq_validation()
-    print(hardreq_validation())
+    print(hardreq_validation(sch_1))
     print(time.time() - start_time)
