@@ -58,6 +58,19 @@ class Timeblock:
         '''Sets timeslot based on timeslot id'''
         self._timeslot = timeslot
 
+    def gene_1(self):
+        """Used for crossover, returns array of CRN, Instructor ID and Room ID"""
+        return [self._crn, self._ins_id, self._rm_id]
+
+    def gene_2(self):
+        """Used for crossover, returns array of day and timeslot"""
+        return [self.day, self.timeslot]
+
     def __lt__(self, other):
         """Custom lt for timeblocks based on day and timeslot"""
-        return (int(self._day), int(self._timeslot)) < (int(other._day), int(other._timeslot))
+        return (self.get_crn(),
+                self.get_instructor()) < (other.get_crn(),
+                                          other.get_instructor())
+
+        # return (int(self._day), int(self._timeslot)) < (int(other._day),
+        #                                                 int(other._timeslot))

@@ -5,6 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import json
 import csv
+import itertools
 
 from schedule_structure.schedule import Schedule
 from schedule_structure.timeblock import Timeblock
@@ -39,7 +40,12 @@ class GeneticAlgorithm:
     selection
     """
 
-    def __init__(self, popSize, eliteSize, mutationRate, generations):
+    def __init__(self,
+                 popSize,
+                 eliteSize,
+                 mutationRate,
+                 generations,
+                 population=[]):
         """
         Initiation of GA
 
@@ -53,7 +59,11 @@ class GeneticAlgorithm:
         self.eliteSize = eliteSize
         self.mutationRate = mutationRate
         self.generations = generations
-        self.population = self.initialPopulation()
+
+        if population == []:
+            self.population = self.initialPopulation()
+        else:
+            self.population = population  # Represents current population in generation
 
     def initialPopulation(self):
         """
@@ -95,7 +105,7 @@ class GeneticAlgorithm:
         for i in rm_data:
             rm_list.append(i)
 
-        time_table = []  # (crn, ins_id, rm_id, day, time)
+        # time_table = []  # (crn, ins_id, rm_id, day, time)
         room_time = []
         ins_time = []
 
@@ -159,95 +169,136 @@ class GeneticAlgorithm:
         return selectionResults
 
     def breedPopulation(self):
-        """ 
+        """
         Creates pools for mating based on selection results
 
         Returns:
-        children (Array): Schedules that has been crossbred (cross-over) 
+        nextGenPop (Array): Next-gen population with BOB + Schedules that has been crossbred (cross-over)
         """
         matingpool = self.selection()  # best of the best (BOB)
-        eliteSize = self.eliteSize
-        children = []
-        length = self.popSize - eliteSize  # num of population - len(selected)
+        length = self.popSize - self.eliteSize  # num of population - len(selected)
+        nextGenPop = []
 
         # Create separate pool to work with mating pool
-        pool = random.sample(matingpool, len(matingpool))
+        pool = list(itertools.combinations(matingpool, 2))
+        pool = random.sample(pool, length)
 
-        for i in range(0, eliteSize):
-            children.append(matingpool[i])  # Appending BOB to next gen
+        for i in range(0, self.eliteSize):
+            nextGenPop.append(
+                self.population[matingpool[i]])  # Appending BOB to next gen
 
         for i in range(0, length):
-            child = self.breed(pool[i], pool[len(matingpool) - i - 1])
-            children.append(child)
+            child = self.breed(pool[i][0], pool[i][1])
+            nextGenPop.append(child)
 
-        return children
+        del matingpool, pool
 
-    def breed(self, parent1, parent2):
+        return nextGenPop
+
+    def breed(self, parent1_index, parent2_index):
         """ 
         ***Crossover function***
+        Takes the courses, instructor id, and roomid  from parent 1 
+        Match with day and time from parent 2
 
         Parameters:
-            parent1 (int): Index of parent 1 in current population
-            parent2 (int): Index of parent 2 in current population
+            parent1_index (int): Index of parent 1 in current population
+            parent2_index (int): Index of parent 2 in current population
 
         Returns:
             child (Schedule): Child that has both parent1 and parent2 genes
         """
-        child = []
-        childP1 = []
-        childP2 = []
+        parent1 = self.population[parent1_index].get_timeblock_list()
+        parent2 = self.population[parent2_index].get_timeblock_list()
+        length = len(parent1)
 
-        # https://www.researchgate.net/publication/273776640_Class_Timetable_Scheduling_with_Genetic_Algorithm
-        
+        child = Schedule()
+        temp_list = []
+
+        for index in range(0, length):
+            for gene in parent1[index].gene_1():
+                # CRN, Instructor ID, Room ID
+                temp_list.append(gene)
+            for gene in parent2[index].gene_2():
+                # Day, Time
+                temp_list.append(gene)
+            child.add_timeblock(
+                Timeblock(temp_list[0], temp_list[1], temp_list[2],
+                          temp_list[3], temp_list[4]))
+            temp_list = []
+
+        del parent1, parent2, length, temp_list
+
         return child
 
-        # geneA = int(random.random() * len(parent1))
-        # geneB = int(random.random() * len(parent1))
+    def mutate(self, child):
+        """ 
+        Mutates individual child based on mutation rate
+        If random.random <= mutation rate, mutate child
+        
+        Parameter:
+        child (Schedule): Child Schedule instance that will be mutated
 
-        # startGene = min(geneA, geneB)
-        # endGene = max(geneA, geneB)
+        Return:
+        child (Schedule): Mutated child schedule
+        """
+        if random.random() <= self.mutationRate:
+            return child
+        else:
+            return child
 
-        # for i in range(startGene, endGene):
-        #     childP1.append(parent1[i])
+    def mutatePopulation(self, children):
+        """ 
+        mutation in the population
 
-        # childP2 = [item for item in parent2 if item not in childP1]
+        Parameters:
+        children (Array[Schedule])
 
-        # child = childP1 + childP2
-        # return child
+        Returns:
+        children (Array[Schedule]): Mutated children population
+        """
+        for index in range(0 + self.eliteSize, len(children)):
+            children[index] = self.mutate(children[index])
 
-    def mutate(self, individual, mutationRate):
-        """ individual mutation """
-        # Based on data structure, lets decide how will we do the mutation
-        return individual
-
-    def mutatePopulation(self, population, mutationRate):
-        """ mutation in the population """
-        mutatedPop = []
-
-        for ind in range(0, len(population)):
-            mutatedInd = self.mutate(population[ind], mutationRate)
-            mutatedPop.append(mutatedInd)
-        return mutatedPop
+        return children  # Returns mutated children
 
     def nextGeneration(self, currentGen, eliteSize, mutationRate):
-        """ child generation (finished breeding and mutation) """
-        popRanked = self.rankSchedule(currentGen)
+        """
+        child generation (finished breeding and mutation) 
+        """
+        # Step 1: Ranks current population
+        popRanked = self.rankSchedule()
+        # Step 2: Select BOB
         selectionResults = self.selection(popRanked, eliteSize)
+        # Step 3:
         matingpool = self.matingPool(currentGen, selectionResults)
-        children = self.breedPopulation(matingpool, eliteSize)
-        nextGeneration = self.mutatePopulation(children, mutationRate)
+        # Step 4:
+        nextGenPop = self.breedPopulation(matingpool, eliteSize)
+        # Step 5:
+        nextGeneration = self.mutatePopulation(nextGenPop, mutationRate)
         return nextGeneration
+
+    def ga_start(self):
+        """ Starts GA """
+        pass
 
 
 if __name__ == "__main__":
     POPULATION_SIZE = 100
-    ELITE_SIZE = 10
+    ELITE_SIZE = 20
     MUTATION_RATE = 0.1
     GENERATIONS = 10
 
-    ga1 = GeneticAlgorithm(100, 10, 0.1, 10)
+    ga1 = GeneticAlgorithm(POPULATION_SIZE, ELITE_SIZE, MUTATION_RATE,
+                           GENERATIONS)
     # print(ga1.showPopulation()[0].display_schedule())
-    ga1.rankSchedule()
-    ga1.selection()
+    print(ga1.rankSchedule())
+    print(ga1.selection())
     children = ga1.breedPopulation()
+    # print(children[-1].display_schedule())
+
+    ga2 = GeneticAlgorithm(POPULATION_SIZE, ELITE_SIZE, MUTATION_RATE,
+                           GENERATIONS, children)
+    print(ga2.rankSchedule())
+    print(ga2.selection())
     # ga1.population[children[0]].display_schedule()

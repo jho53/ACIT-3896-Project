@@ -9,6 +9,7 @@ temp_info = []
 
 sch_1 = Schedule()
 
+
 def testing(current_path):
     current_path += "\\timetable.csv"
 
