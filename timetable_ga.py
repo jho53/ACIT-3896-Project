@@ -29,26 +29,66 @@ class Fitness:
         return self.fitness
 
 
-class GA:
-    """ GA """
+class GeneticAlgorithm:
+    """
+    Genetic Algorithm representation for timetable problem
+
+    Steps:
+    initialPopulation -> _createSchedule
+    rankSchedule
+    selection
+    """
 
     def __init__(self, popSize, eliteSize, mutationRate, generations):
+        """
+        Initiation of GA
+
+        Parameters:
+            popSize (int): Population size for each generation
+            eliteSize (int): Number of chromosomes selected to be in next generation
+            mutationRate (float): Value between 0 - 1 to determine the amount of crossover population to mutate
+            generations: dont know if needed
+        """
         self.popSize = popSize
         self.eliteSize = eliteSize
         self.mutationRate = mutationRate
         self.generations = generations
-        self.population = self._initialPopulation(popSize)
+        self.population = self.initialPopulation()
+
+    def initialPopulation(self):
+        """
+        Calls createSchedule() to initialize the population based on popSize
+
+        Returns:
+        population (Array): An initialized population in the form of array
+        """
+        population = []
+
+        for i in range(0, self.popSize):
+            temp_schedule = Schedule()
+            population.append(self._createSchedule(temp_schedule))
+            del temp_schedule
+
+        return population
 
     def _createSchedule(self, schedule):
-        """ generate a new schedule (which is used to add more schedule to the population) """
-        # Based on the data structure, we will randomize the data in the schedule to create a new schedule
-        with open("data\\crn_file.json", "r") as data:
+        """
+        Generate a randomly created schedule
+
+        Parameters:
+            schedule (Schedule): Schedule object to append timeblock instances to
+
+        Returns:
+            schedule (Schedule): Schedule object with timeblocks filled
+
+        """
+        with open("data files\\crn_file.json", "r") as data:
             crn_data = json.load(data)
 
-        with open("data\\ins_file.json", "r") as data:
+        with open("data files\\ins_file.json", "r") as data:
             ins_data = json.load(data)
 
-        with open("data\\rm_file.json", "r") as data:
+        with open("data files\\rm_file.json", "r") as data:
             rm_data = json.load(data)
 
         rm_list = []
@@ -87,28 +127,28 @@ class GA:
 
         return schedule
 
-    def _initialPopulation(self, popSize):
-        """ calling createSchedule function to initialize the population """
-        population = []
-
-        for i in range(0, popSize):
-            temp_schedule = Schedule()
-            population.append(self._createSchedule(temp_schedule))
-            del temp_schedule
-
-        return population
-
     def rankSchedule(self):
-        """ calling the ranking system to calculate the ranking score for each schedule in the population """
-        population = self.population
+        """ 
+        Ranks current population based on fitness score (Fitness score = (# of HC violations))
 
+        Returns:
+        A sorted array of tuple containing index and fitness score (index, fitness score) of each chromosome in population
+        """
+        population = self.population
         fitnessResults = {}
+
         for i in range(0, len(population)):
+            # hashmap of index and fitness scores
             fitnessResults[i] = Fitness(population[i]).scheduleFitness()
         return sorted(fitnessResults.items(), key=operator.itemgetter(1))
 
     def selection(self):
-        """ selection function I copied from other GA selection, they should all be similar"""
+        """ 
+        Selects the best of the best in population based on eliteSize
+
+        Returns:
+        selectionResults (Array): An array with the top {eliteSize} chromosome's index and scores in tuple form (index, fitness score) 
+        """
         selectionResults = []
         popRanked = self.rankSchedule()
         eliteSize = self.eliteSize
@@ -118,43 +158,62 @@ class GA:
 
         return selectionResults
 
-    def breed(self, parent1, parent2):
-        """ happening in breed population function, also called crossover """
-        child = []
-        childP1 = []
-        childP2 = []
-
-        geneA = int(random.random() * len(parent1))
-        geneB = int(random.random() * len(parent1))
-
-        startGene = min(geneA, geneB)
-        endGene = max(geneA, geneB)
-
-        for i in range(startGene, endGene):
-            childP1.append(parent1[i])
-
-        childP2 = [item for item in parent2 if item not in childP1]
-
-        child = childP1 + childP2
-        return child
-
     def breedPopulation(self):
-        """ breeding child generation """
-        matingpool = self.selection()
+        """ 
+        Creates pools for mating based on selection results
+
+        Returns:
+        children (Array): Schedules that has been crossbred (cross-over) 
+        """
+        matingpool = self.selection()  # best of the best (BOB)
         eliteSize = self.eliteSize
-
         children = []
+        length = self.popSize - eliteSize  # num of population - len(selected)
 
-        length = len(matingpool) - eliteSize
+        # Create separate pool to work with mating pool
         pool = random.sample(matingpool, len(matingpool))
 
         for i in range(0, eliteSize):
-            children.append(matingpool[i])
+            children.append(matingpool[i])  # Appending BOB to next gen
 
         for i in range(0, length):
             child = self.breed(pool[i], pool[len(matingpool) - i - 1])
             children.append(child)
+
         return children
+
+    def breed(self, parent1, parent2):
+        """ 
+        ***Crossover function***
+
+        Parameters:
+            parent1 (int): Index of parent 1 in current population
+            parent2 (int): Index of parent 2 in current population
+
+        Returns:
+            child (Schedule): Child that has both parent1 and parent2 genes
+        """
+        child = []
+        childP1 = []
+        childP2 = []
+
+        # https://www.researchgate.net/publication/273776640_Class_Timetable_Scheduling_with_Genetic_Algorithm
+        
+        return child
+
+        # geneA = int(random.random() * len(parent1))
+        # geneB = int(random.random() * len(parent1))
+
+        # startGene = min(geneA, geneB)
+        # endGene = max(geneA, geneB)
+
+        # for i in range(startGene, endGene):
+        #     childP1.append(parent1[i])
+
+        # childP2 = [item for item in parent2 if item not in childP1]
+
+        # child = childP1 + childP2
+        # return child
 
     def mutate(self, individual, mutationRate):
         """ individual mutation """
@@ -181,10 +240,14 @@ class GA:
 
 
 if __name__ == "__main__":
-    ga1 = GA(100, 10, 0.1, 10)
-    # print(ga1.showPopulation()[0].display_schedule())
-    print(ga1.rankSchedule())
-    print(ga1.selection())
+    POPULATION_SIZE = 100
+    ELITE_SIZE = 10
+    MUTATION_RATE = 0.1
+    GENERATIONS = 10
 
-# ga1.population[0].day, time, room
-# ga1.population[1]
+    ga1 = GeneticAlgorithm(100, 10, 0.1, 10)
+    # print(ga1.showPopulation()[0].display_schedule())
+    ga1.rankSchedule()
+    ga1.selection()
+    children = ga1.breedPopulation()
+    # ga1.population[children[0]].display_schedule()

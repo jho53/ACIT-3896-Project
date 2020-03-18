@@ -1,5 +1,5 @@
-import pprint
 from .timeblock import Timeblock
+import operator
 
 
 class Schedule:
@@ -15,7 +15,7 @@ class Schedule:
 
     def get_timeblock_list(self):
         """Returns timeblock list"""
-        return self.timeblock_list
+        return self.timeblock_list.sort()
 
     def display_schedule(self):
         """Prints timeblocks within schedule"""

@@ -57,3 +57,7 @@ class Timeblock:
     def timeslot(self, timeslot):
         '''Sets timeslot based on timeslot id'''
         self._timeslot = timeslot
+
+    def __lt__(self, other):
+        """Custom lt for timeblocks based on day and timeslot"""
+        return (int(self._day), int(self._timeslot)) < (int(other._day), int(other._timeslot))

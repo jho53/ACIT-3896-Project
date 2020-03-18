@@ -9,16 +9,16 @@ temp_info = []
 
 sch_1 = Schedule()
 
-# def testing(current_path):
-#     current_path += "\\timetable.csv"
+def testing(current_path):
+    current_path += "\\timetable.csv"
 
-#     with open(current_path, "r") as read_csv_file:
-#         for line in read_csv_file:
-#             timeblock_list = line.split(",")
-#             temp_timeblock = Timeblock(timeblock_list[0], timeblock_list[1],
-#                                        timeblock_list[2], timeblock_list[3],
-#                                        timeblock_list[4][:-1])
-#             sch_1.add_timeblock(temp_timeblock)
+    with open(current_path, "r") as read_csv_file:
+        for line in read_csv_file:
+            timeblock_list = line.split(",")
+            temp_timeblock = Timeblock(timeblock_list[0], timeblock_list[1],
+                                       timeblock_list[2], timeblock_list[3],
+                                       timeblock_list[4][:-1])
+            sch_1.add_timeblock(temp_timeblock)
 
 
 def hardreq_validation(schedule):
@@ -95,4 +95,5 @@ if __name__ == "__main__":
     testing(os.getcwd())
     start_time = time.time()
     print(hardreq_validation(sch_1))
+    print(sch_1.display_schedule())
     print(time.time() - start_time)
