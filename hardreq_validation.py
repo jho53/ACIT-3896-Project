@@ -2,28 +2,69 @@ from schedule_structure.schedule import Schedule
 from schedule_structure.timeblock import Timeblock
 import time
 import itertools
+import make_crn_block as mk
 
 import os
+import sys
 
 temp_info = []
-
-# sch_1 = Schedule()
-
-
-# def testing(current_path):
-#     current_path += "\\timetable.csv"
-
-#     with open(current_path, "r") as read_csv_file:
-#         for line in read_csv_file:
-#             timeblock_list = line.split(",")
-#             temp_timeblock = Timeblock(timeblock_list[0], timeblock_list[1],
-#                                        timeblock_list[2], timeblock_list[3],
-#                                        timeblock_list[4][:-1])
-#             sch_1.add_timeblock(temp_timeblock)
+sch_1 = Schedule()
 
 
-def hardreq_validation(schedule):
-    '''Checks if schedule fulfills hard requirements, returns False if no'''
+def testing(current_path):
+    current_path += "\\new_timetable.csv"
+
+    with open(current_path, "r") as read_csv_file:
+        for line in read_csv_file:
+            timeblock_list = line.split(",")
+            temp_timeblock = Timeblock(timeblock_list[0], timeblock_list[1],
+                                       timeblock_list[2], timeblock_list[3],
+                                       timeblock_list[4][:-1])
+            sch_1.add_timeblock(temp_timeblock)
+
+
+def hardreq_validation():
+    timeblock_combinations = list(
+        itertools.combinations(
+            sch_1.get_timeblock_list(),
+            2))  # Takes all combinations of timeblocks in schedule
+
+    violation_counter = 0
+
+    for ele in timeblock_combinations:
+        try:
+            # ele[0] for 1st timeblock, ele[1] for 2nd timeblock
+
+            # Validation 1: Instructors cannot be in two rooms at once
+            if ((ele[0].get_instructor() == ele[1].get_instructor()) and
+                (ele[0].day == ele[1].day)) and (
+                    ele[0].timeslot == ele[1].timeslot) and (ele[0].room !=
+                                                             ele[1].room):
+                print(ele[0].get_time_block(), ele[1].get_time_block())
+                print("Instructors cannot be in two rooms at once")
+                violation_counter += 1
+                # mk.make_new_timetable()
+                # return False
+
+            # Validation 2: Instructors cannot be on 2 campuses on same day
+            if (ele[0].get_instructor() == ele[1].get_instructor()) and (
+                    ele[0].day == ele[1].day) and (ele[0].room[0] !=
+                                                   ele[1].room[0]):
+                print(ele[0].get_time_block(), ele[1].get_time_block())
+                print("Instructors cannot be on 2 campuses on the same day")
+                violation_counter += 1
+                # mk.make_new_timetable()
+                # return False
+
+        except Exception as error:
+            print(error)
+            return False
+
+    return violation_counter
+    # return True
+
+
+def main():
     '''
     **-8:30-5:20.
     **-Instructors cannot be on 2 campuses on the same day
@@ -45,39 +86,17 @@ def hardreq_validation(schedule):
     Jimmy's notes:
         Time based hard constraints are basically solved, just need to make sure dummy data is compatible
     '''
-    timeblock_combinations = list(
-        itertools.combinations(
-            schedule.get_timeblock_list(),
-            2))  # Takes all combinations of timeblocks in schedule
-
-    for ele in timeblock_combinations:
-        try:
-            # ele[0] for 1st timeblock, ele[1] for 2nd timeblock
-
-            # Validation 1: Instructors cannot be in two rooms at once
-            if ((ele[0].get_instructor() == ele[1].get_instructor()) and
-                (ele[0].day == ele[1].day)) and (
-                    ele[0].timeslot == ele[1].timeslot) and (ele[0].room !=
-                                                             ele[1].room):
-                print(ele[0].get_time_block(), ele[1].get_time_block())
-                print("Instructors cannot be in two rooms at once")
-
-            # Validation 2: Instructors cannot be on 2 campuses on same day
-            if (ele[0].get_instructor() == ele[1].get_instructor()) and (
-                    ele[0].day == ele[1].day) and (ele[0].room[0] !=
-                                                   ele[1].room[0]):
-                print(ele[0].get_time_block(), ele[1].get_time_block())
-                print("Instructors cannot be on 2 campuses on the same day")
-
-        except Exception as error:
-            print(error)
-            return False
-
-    return True
 
 
 if __name__ == "__main__":
     testing(os.getcwd())
     start_time = time.time()
-    print(hardreq_validation(sch_1))
+    # x = hardreq_validation()
+    # while x == False:
+    #     del sch_1
+    #     sch_1 = Schedule()
+    #     testing(os.getcwd())
+    #     hardreq_validation()
+    print(hardreq_validation())
     print(time.time() - start_time)
+
