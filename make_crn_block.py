@@ -116,7 +116,17 @@ def make_new_timetable():
         temp_block = [i, temp_ins, rm_list[temp_rm], temp_day, temp_time]
         time_table[i] = temp_block
 
+    ins_course = {}
+    for i in ins_data:
+        ins_course[i] = []
+
+    for i in time_table:
+        ins_course[time_table[i][1]].append(time_table[i])
+
     with open('new_timetable.json', 'w') as file:
         json.dump(time_table, file)
+
+    with open('ins_course.json', 'w') as file:
+        json.dump(ins_course, file)
 
 make_new_timetable()
