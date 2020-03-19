@@ -1,202 +1,402 @@
 {
   "1": {
     "id": 1,
-    "course": [],
+    "course": [
+      "CIT27",
+      "CST32",
+      "CST45"
+    ],
     "pref": [{"location": {"like": "B", "dislike": ""}}, {"time": {"like": "51,41,22", "dislike": "12"}}]
   },
   "2": {
     "id": 2,
-    "course": [],
+    "course": [
+      "CIT23",
+      "CST22",
+      "CST23"
+    ],
     "pref": [{"location": {"like": "", "dislike": "B"}}, {"time": {"like": "52,31,21", "dislike": "22"}}]
   },
   "3": {
     "id": 3,
-    "course": [],
+    "course": [
+      "CIT14",
+      "CIT23",
+      "CST17",
+      "CST37"
+    ],
     "pref": []
   },
   "4": {
     "id": 4,
-    "course": [],
+    "course": [
+      "CIT16",
+      "CIT31",
+      "CST15",
+      "CST16",
+      "CST27"
+    ],
     "pref": [{"location": {"like": "D", "dislike": ""}}, {"time": {"like": "21,31,12", "dislike": "42"}}]
   },
   "5": {
     "id": 5,
-    "course": [],
+    "course": [
+      "CIT14",
+      "CIT41",
+      "CST35"
+    ],
     "pref": [{"location": {"like": "B", "dislike": ""}}, {"time": {"like": "41,11,13", "dislike": "12"}}]
   },
   "6": {
     "id": 6,
-    "course": [],
-    "pref": [{"location": {"like": "", "dislike": "B"}}, {"time": {"like": "11,31,12", "dislike": ""}}]
+    "course": [
+      "CIT33",
+      "CIT46",
+      "CST34",
+      "CST43"
+    ],
+    "pref":[{"location": {"like": "", "dislike": "B"}}, {"time": {"like": "11,31,12", "dislike": ""}}]
   },
   "7": {
     "id": 7,
-    "course": [],
+    "course": [
+      "CIT24",
+      "CIT31",
+      "CIT34",
+      "CIT47"
+    ],
     "pref": []
   },
   "8": {
     "id": 8,
-    "course": [],
+    "course": [
+      "CIT12",
+      "CIT32",
+      "CIT46",
+      "CST34"
+    ],
     "pref": [{"location": {"like": "D", "dislike": ""}}, {"time": {"like": "41,11", "dislike": "12"}}]
   },
   "9": {
     "id": 9,
-    "course": [],
+    "course": [
+      "CIT11",
+      "CIT45",
+      "CST42",
+      "CST44"
+    ],
     "pref": [{"location": {"like": "B", "dislike": ""}}, {"time": {"like": "31,41,52", "dislike": "53"}}]
   },
   "10": {
     "id": 10,
-    "course": [],
+    "course": [
+      "CST11",
+      "CST21",
+      "CST31",
+      "CST33"
+    ],
     "pref": []
   },
   "11": {
     "id": 11,
-    "course": [],
-    "pref": []
+    "course": [
+      "CIT36",
+      "CST14",
+      "CST15",
+      "CST25",
+      "CST46"
+    ],
+    "pref": [{"location": {"like": "", "dislike": "B"}}, {"time": {"like": "21,33,22", "dislike": "24,12"}}]
   },
   "12": {
     "id": 12,
-    "course": [],
+    "course": [
+      "CIT36",
+      "CST33",
+      "CST35",
+      "CST47"
+    ],
     "pref": []
   },
   "13": {
     "id": 13,
-    "course": [],
+    "course": [
+      "CIT13",
+      "CIT15",
+      "CIT24",
+      "CST12",
+      "CST27",
+      "CST34"
+    ],
     "pref": []
   },
   "14": {
     "id": 14,
-    "course": [],
+    "course": [
+      "CIT22",
+      "CIT23",
+      "CST35",
+      "CST47"
+    ],
     "pref": []
   },
   "15": {
     "id": 15,
-    "course": [],
+    "course": [
+      "CST22",
+      "CST41",
+      "CST44"
+    ],
     "pref": []
   },
   "16": {
     "id": 16,
-    "course": [],
+    "course": [
+      "CIT47",
+      "CST36",
+      "CST37",
+      "CST46"
+    ],
     "pref": []
   },
   "17": {
     "id": 17,
-    "course": [],
+    "course": [
+      "CST14",
+      "CST37"
+    ],
     "pref": []
   },
   "18": {
     "id": 18,
-    "course": [],
+    "course": [
+      "CIT25",
+      "CST16",
+      "CST43",
+      "CST46"
+    ],
     "pref": []
   },
   "19": {
     "id": 19,
-    "course": [],
+    "course": [
+      "CIT21",
+      "CIT34",
+      "CST13",
+      "CST44",
+      "CST45"
+    ],
     "pref": []
   },
   "20": {
     "id": 20,
-    "course": [],
+    "course": [
+      "CIT12",
+      "CIT17",
+      "CIT44",
+      "CST25"
+    ],
     "pref": []
   },
   "21": {
     "id": 21,
-    "course": [],
+    "course": [
+      "CIT11",
+      "CIT27",
+      "CIT41",
+      "CIT45"
+    ],
     "pref": []
   },
   "22": {
     "id": 22,
-    "course": [],
+    "course": [
+      "CIT11",
+      "CST11",
+      "CST12"
+    ],
     "pref": []
   },
   "23": {
     "id": 23,
-    "course": [],
+    "course": [
+      "CIT46",
+      "CST16",
+      "CST22",
+      "CST37"
+    ],
     "pref": []
   },
   "24": {
     "id": 24,
-    "course": [],
+    "course": [
+      "CST13",
+      "CST34",
+      "CST41",
+      "CST42"
+    ],
     "pref": []
   },
   "25": {
     "id": 25,
-    "course": [],
+    "course": [
+      "CIT25",
+      "CIT26",
+      "CST24",
+      "CST26"
+    ],
     "pref": []
   },
   "26": {
     "id": 26,
-    "course": [],
+    "course": [
+      "CIT13",
+      "CIT16",
+      "CIT17",
+      "CST36"
+    ],
     "pref": []
   },
   "27": {
     "id": 27,
-    "course": [],
+    "course": [
+      "CST15",
+      "CST17",
+      "CST23",
+      "CST24",
+      "CST36"
+    ],
     "pref": []
   },
   "28": {
     "id": 28,
-    "course": [],
+    "course": [
+      "CIT34",
+      "CST31",
+      "CST32",
+      "CST43"
+    ],
     "pref": []
   },
   "29": {
     "id": 29,
-    "course": [],
+    "course": [
+      "CIT27",
+      "CIT41",
+      "CST13",
+      "CST42"
+    ],
     "pref": []
   },
   "30": {
     "id": 30,
-    "course": [],
+    "course": [
+      "CIT16",
+      "CIT22",
+      "CST27",
+      "CST31"
+    ],
     "pref": []
   },
   "31": {
     "id": 31,
-    "course": [],
-    "pref": [{"location": {"like": "B", "dislike": ""}}, {"time": {"like": "41,11,13", "dislike": "52"}}]
+    "course": [
+      "CIT15",
+      "CST24",
+      "CST44",
+      "CST47"
+    ],
+    "pref": []
   },
   "32": {
     "id": 32,
-    "course": [],
+    "course": [
+      "CIT12",
+      "CIT33",
+      "CIT37",
+      "CST25"
+    ],
     "pref": []
   },
   "33": {
     "id": 33,
-    "course": [],
+    "course": [
+      "CIT35",
+      "CIT37",
+      "CST13",
+      "CST35"
+    ],
     "pref": []
   },
   "34": {
     "id": 34,
-    "course": [],
+    "course": [
+      "CIT26",
+      "CIT42",
+      "CST16",
+      "CST26",
+      "CST41"
+    ],
     "pref": []
   },
   "35": {
     "id": 35,
-    "course": [],
+    "course": [
+      "CIT21",
+      "CIT42",
+      "CST33",
+      "CST36"
+    ],
     "pref": []
   },
   "36": {
     "id": 36,
-    "course": [],
+    "course": [
+      "CIT17",
+      "CIT32",
+      "CIT33",
+      "CST43"
+    ],
     "pref": []
   },
   "37": {
     "id": 37,
-    "course": [],
-    "pref": [{"location": {"like": "", "dislike": "B"}}, {"time": {"like": "41,31,32", "dislike": "12"}}]
+    "course": [
+      "CIT22",
+      "CIT37",
+      "CST15",
+      "CST32",
+      "CST45"
+    ],
+    "pref": []
   },
   "38": {
     "id": 38,
-    "course": [],
+    "course": [
+      "CIT24",
+      "CIT35",
+      "CST14",
+      "CST42"
+    ],
     "pref": []
   },
   "39": {
     "id": 39,
-    "course": [],
+    "course": [
+      "CIT44",
+      "CST12",
+      "CST24",
+      "CST46"
+    ],
     "pref": []
   },
   "40": {
     "id": 40,
-    "course": [],
+    "course": [
+      "CIT43",
+      "CST14",
+      "CST21"
+    ],
     "pref": []
   }
 }
