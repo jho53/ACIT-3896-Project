@@ -33,13 +33,7 @@ class Fitness:
 class GeneticAlgorithm:
     """Genetic Algorithm representation for timetable problem"""
 
-    def __init__(
-            self,
-            popSize,
-            eliteSize,
-            mutationRate,
-            #  generations,
-            population=[]):
+    def __init__(self, popSize, eliteSize, mutationRate, population=[]):
         """
         Initiation of GA
 
@@ -155,9 +149,8 @@ class GeneticAlgorithm:
         """
         selectionResults = []
         popRanked = self.rankSchedule()
-        eliteSize = self.eliteSize
 
-        for i in range(0, eliteSize):
+        for i in range(0, self.eliteSize):
             selectionResults.append(popRanked[i][0])
 
         return selectionResults
@@ -268,6 +261,13 @@ class GeneticAlgorithm:
                               temp_crn_ins_rm[4]))  # Inserts mutated timeblock
 
                 temp_crn_ins_rm = []
+
+            # Create new schedule instance to replace original
+            temp_schedule = Schedule()
+            for ele in child_timeblock_list:
+                temp_schedule.add_timeblock(ele)
+
+            return temp_schedule
         else:
             return child
 
@@ -281,7 +281,7 @@ class GeneticAlgorithm:
         Returns:
         nextGenPopulation (Array[Schedule]): Mutated nextGenPopulation population
         """
-        for index in range(0 + self.eliteSize, len(nextGenPopulation)):
+        for index in range(0, len(nextGenPopulation)):
             nextGenPopulation[index] = self.mutate(nextGenPopulation[index])
 
         return nextGenPopulation  # Returns mutated children
@@ -303,23 +303,34 @@ class GeneticAlgorithm:
 if __name__ == "__main__":
     POPULATION_SIZE = 100
     ELITE_SIZE = 20
-    MUTATION_RATE = 0.1
-    GENERATIONS = 10
+    MUTATION_RATE = 0.4
+    GENERATIONS = 25
 
     nextGenPopulation = None
 
     for i in range(0, GENERATIONS):
+        print("gen", str(i + 1), "in progress")
         if i == 0:  # For first generation
             tt_ga = GeneticAlgorithm(POPULATION_SIZE, ELITE_SIZE,
                                      MUTATION_RATE)
-            print(tt_ga.selection())
             nextGenPopulation = tt_ga.generate_NextGenPop()
+            with open("log.txt", "w") as txt_file:
+                txt_file.write("---Generation " + str(i) + "---\n")
+                txt_file.write("Ranking\n")
+                txt_file.write(str(tt_ga.rankSchedule()) + "\n")
+                txt_file.write("Selection\n")
+                txt_file.write(str(tt_ga.selection()) + "\n\n")
         else:
             del tt_ga
             tt_ga = GeneticAlgorithm(POPULATION_SIZE, ELITE_SIZE,
                                      MUTATION_RATE, nextGenPopulation)
-            print(tt_ga.selection())
             nextGenPopulation = tt_ga.generate_NextGenPop()
+            with open("log.txt", "a") as txt_file:
+                txt_file.write("---Generation " + str(i) + "---\n")
+                txt_file.write("Ranking\n")
+                txt_file.write(str(tt_ga.rankSchedule()) + "\n")
+                txt_file.write("Selection\n")
+                txt_file.write(str(tt_ga.selection()) + "\n\n")
 
     # print(ga1.showPopulation()[0].display_schedule())
     # print(tt_ga.rankSchedule())
