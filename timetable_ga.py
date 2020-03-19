@@ -31,21 +31,15 @@ class Fitness:
 
 
 class GeneticAlgorithm:
-    """
-    Genetic Algorithm representation for timetable problem
+    """Genetic Algorithm representation for timetable problem"""
 
-    Steps:
-    initialPopulation -> _createSchedule
-    rankSchedule
-    selection
-    """
-
-    def __init__(self,
-                 popSize,
-                 eliteSize,
-                 mutationRate,
-                 generations,
-                 population=[]):
+    def __init__(
+            self,
+            popSize,
+            eliteSize,
+            mutationRate,
+            #  generations,
+            population=[]):
         """
         Initiation of GA
 
@@ -53,12 +47,12 @@ class GeneticAlgorithm:
             popSize (int): Population size for each generation
             eliteSize (int): Number of chromosomes selected to be in next generation
             mutationRate (float): Value between 0 - 1 to determine the amount of crossover population to mutate
-            generations: dont know if needed
+            population (Array[Schedule]): Will contain an array of chromosomes (Schedule)
         """
         self.popSize = popSize
         self.eliteSize = eliteSize
         self.mutationRate = mutationRate
-        self.generations = generations
+        # self.generations = generations
 
         if population == []:
             self.population = self.initialPopulation()
@@ -235,52 +229,75 @@ class GeneticAlgorithm:
         """ 
         Mutates individual child based on mutation rate
         If random.random <= mutation rate, mutate child
+        Randomly assigns a course, instructor, room block with a day, time that's not being used to 5 timeblocks
         
         Parameter:
         child (Schedule): Child Schedule instance that will be mutated
 
         Return:
-        child (Schedule): Mutated child schedule
+        child (Schedule): Mutated child schedule or untouched child schedule
         """
         if random.random() <= self.mutationRate:
-            return child
+            child_timeblock_list = child.get_timeblock_list()
+            temp_crn_ins_rm = []
+
+            for i in range(0, 5):
+                random_child_index = random.randint(
+                    0,
+                    len(child_timeblock_list) - 1)
+
+                temp_crn_ins_rm = child_timeblock_list[
+                    random_child_index].gene_1()
+                temp_crn_ins_rm.append(random.randint(
+                    1, 5))  # Randomly appends a day
+                temp_crn_ins_rm.append(random.randint(
+                    1, 3))  # Randomly appends a timeslot
+                while (temp_crn_ins_rm in child_timeblock_list):
+                    temp_crn_ins_rm.pop().pop()
+                    temp_crn_ins_rm.append(random.randint(
+                        1, 5))  # Randomly appends a day
+                    temp_crn_ins_rm.append(random.randint(
+                        1, 3))  # Randomly appends a timeslot
+
+                child_timeblock_list.pop(
+                    random_child_index)  # Removes the original timeblock
+                child_timeblock_list.insert(
+                    random_child_index,
+                    Timeblock(temp_crn_ins_rm[0], temp_crn_ins_rm[1],
+                              temp_crn_ins_rm[2], temp_crn_ins_rm[3],
+                              temp_crn_ins_rm[4]))  # Inserts mutated timeblock
+
+                temp_crn_ins_rm = []
         else:
             return child
 
-    def mutatePopulation(self, children):
+    def mutatePopulation(self, nextGenPopulation):
         """ 
-        mutation in the population
+        Mutates the crossover portion of the population
 
         Parameters:
-        children (Array[Schedule])
+        nextGenPopulation (Array[Schedule])
 
         Returns:
-        children (Array[Schedule]): Mutated children population
+        nextGenPopulation (Array[Schedule]): Mutated nextGenPopulation population
         """
-        for index in range(0 + self.eliteSize, len(children)):
-            children[index] = self.mutate(children[index])
+        for index in range(0 + self.eliteSize, len(nextGenPopulation)):
+            nextGenPopulation[index] = self.mutate(nextGenPopulation[index])
 
-        return children  # Returns mutated children
+        return nextGenPopulation  # Returns mutated children
 
-    def nextGeneration(self, currentGen, eliteSize, mutationRate):
+    def generate_NextGenPop(self):
         """
-        child generation (finished breeding and mutation) 
+        Generates the next generation's population, automatically runs selection/crossover/mutation functions in class
+
+        Returns:
+        nextGeneration(Array[Schedules]): Next generation of schedules
         """
-        # Step 1: Ranks current population
-        popRanked = self.rankSchedule()
-        # Step 2: Select BOB
-        selectionResults = self.selection(popRanked, eliteSize)
-        # Step 3:
-        matingpool = self.matingPool(currentGen, selectionResults)
-        # Step 4:
-        nextGenPop = self.breedPopulation(matingpool, eliteSize)
-        # Step 5:
-        nextGeneration = self.mutatePopulation(nextGenPop, mutationRate)
+        # Step 1, 2, 3: Finds BOB (Selection) + Crossover for next-gen population
+        nextGenPop = self.breedPopulation()
+        # Step 4: Mutates Crossovered population based on mutation rate
+        nextGeneration = self.mutatePopulation(nextGenPop)
         return nextGeneration
-
-    def ga_start(self):
-        """ Starts GA """
-        pass
 
 
 if __name__ == "__main__":
@@ -289,16 +306,30 @@ if __name__ == "__main__":
     MUTATION_RATE = 0.1
     GENERATIONS = 10
 
-    ga1 = GeneticAlgorithm(POPULATION_SIZE, ELITE_SIZE, MUTATION_RATE,
-                           GENERATIONS)
+    nextGenPopulation = None
+
+    for i in range(0, GENERATIONS):
+        if i == 0:  # For first generation
+            tt_ga = GeneticAlgorithm(POPULATION_SIZE, ELITE_SIZE,
+                                     MUTATION_RATE)
+            print(tt_ga.selection())
+            nextGenPopulation = tt_ga.generate_NextGenPop()
+        else:
+            del tt_ga
+            tt_ga = GeneticAlgorithm(POPULATION_SIZE, ELITE_SIZE,
+                                     MUTATION_RATE, nextGenPopulation)
+            print(tt_ga.selection())
+            nextGenPopulation = tt_ga.generate_NextGenPop()
+
     # print(ga1.showPopulation()[0].display_schedule())
-    print(ga1.rankSchedule())
-    print(ga1.selection())
-    children = ga1.breedPopulation()
+    # print(tt_ga.rankSchedule())
+    # print(tt_ga.selection())
+    # children = tt_ga.breedPopulation()
+    # mutatePop = tt_ga.mutatePopulation(children)
     # print(children[-1].display_schedule())
 
-    ga2 = GeneticAlgorithm(POPULATION_SIZE, ELITE_SIZE, MUTATION_RATE,
-                           GENERATIONS, children)
-    print(ga2.rankSchedule())
-    print(ga2.selection())
+    # ga2 = GeneticAlgorithm(POPULATION_SIZE, ELITE_SIZE, MUTATION_RATE,
+    #                        GENERATIONS, children)
+    # print(ga2.rankSchedule())
+    # print(ga2.selection())
     # ga1.population[children[0]].display_schedule()
