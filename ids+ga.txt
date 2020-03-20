@@ -1,0 +1,11 @@
+DEPTH = 1
+
+IDS(DEPTH):
+    reuslt = GA(..., generations = DEPTH)
+    IF result[0].fitness == 0:       
+        RETURN result
+    ELSE 
+        DEPTH *= 2
+        IDS(DEPTH)
+
+
