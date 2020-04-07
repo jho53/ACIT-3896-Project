@@ -1,0 +1,38 @@
+{
+  "1": {
+    "id": 1,
+    "desc": "Prefer to work on Monday and Tuesday only"
+  },
+  "2": {
+    "id": 2,
+    "desc": "Prefer to work in Downtown only"
+  },
+  "3": {
+    "id": 3,
+    "desc": "Prefer to work in Burnaby only"
+  },
+  "4": {
+    "id": 4,
+    "desc": "Prefer to work on Wednesday Only"
+  },
+  "5": {
+    "id": 5,
+    "desc": "Prefer to NOT work on Wednesday"
+  },
+  "6": {
+    "id": 6,
+    "desc": ""
+  },
+  "7": {
+    "id": 7,
+    "desc": ""
+  },
+  "8": {
+    "id": 8,
+    "desc": ""
+  },
+  "9": {
+    "id": 9,
+    "desc": ""
+  }
+}

@@ -106,7 +106,7 @@
       "CST25",
       "CST46"
     ],
-    "pref": []
+    "pref": [{"location": {"like": "", "dislike": "B"}}, {"time": {"like": "21,33,22", "dislike": "24,12"}}]
   },
   "12": {
     "id": 12,

@@ -84,3 +84,12 @@ for term in range(num_term):
 #     json.dump(crn_list, write_file)
 # with open("set_file.json", "w") as write_file:
 #     json.dump(set_list, write_file)
+
+# Empty preference
+
+pref_data = {}
+for i in range(1, 10):
+    pref_data[i] = {'id':i, 'desc':''}
+
+with open("pref_file.json", "w") as write_file:
+    json.dump(pref_data, write_file)
