@@ -10,11 +10,9 @@ import sys
 temp_info = []
 sch_1 = Schedule()
 
-def testing(current_path):
-    current_path += "\\new_timetable.csv"
 
 def testing(current_path):
-    current_path += "\\timetable.csv"
+    current_path += "\\new_timetable.csv"
 
     with open(current_path, "r") as read_csv_file:
         for line in read_csv_file:
@@ -53,10 +51,8 @@ def hardreq_validation(schedule):
 
     timeblock_combinations = list(
         itertools.combinations(
-            sch_1.get_timeblock_list(),
+            schedule.get_timeblock_list(),
             2))  # Takes all combinations of timeblocks in schedule
-
-    violation_counter = 0
 
     for ele in timeblock_combinations:
         try:
@@ -80,7 +76,7 @@ def hardreq_validation(schedule):
                 # print("Instructors cannot be on 2 campuses on the same day")
                 violation_count += 1
 
-            # Validation 3: Each set should only have 2 classes for CIT
+            # Validation 3: Each set should only have 2 classes per day for CIT
 
             # Validation 4: Electives must be on thursday for CIT
 
@@ -103,4 +99,3 @@ if __name__ == "__main__":
     print(hardreq_validation(sch_1))
     print(sch_1.display_schedule())
     print(time.time() - start_time)
-

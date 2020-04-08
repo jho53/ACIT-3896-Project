@@ -6,27 +6,22 @@ import matplotlib.pyplot as plt
 import json
 import csv
 import itertools
+from time import time
 
 from schedule_structure.schedule import Schedule
 from schedule_structure.timeblock import Timeblock
 from hardreq_validation import hardreq_validation
+from ranking import score_time_table
 
 
 class Fitness:
     def __init__(self, schedule):
         self.schedule = schedule
         # self.ranking = 0
-        self.fitness = hardreq_validation(self.schedule)
-
-    # def rank(self):
-    #     # Calculate the total ranking score of the schedule
-    #     self.ranking = 12345
-    #     return self.ranking
+        self.fitness = hardreq_validation(self.schedule) + score_time_table()
 
     def scheduleFitness(self):
         # Fitness is the lower, the better
-        # Maybe call validator here, if cannot pass validation, set the fitness as 1 (based on the formula we may use, it should be a large number)
-        # self.fitness = 1 / float(self.rank())
         return self.fitness
 
 
@@ -46,7 +41,7 @@ class GeneticAlgorithm:
         self.popSize = popSize
         self.eliteSize = eliteSize
         self.mutationRate = mutationRate
-        # self.generations = generations
+        self.stat = []
 
         if population == []:
             self.population = self.initialPopulation()
@@ -126,7 +121,7 @@ class GeneticAlgorithm:
         return schedule
 
     def rankSchedule(self):
-        """ 
+        """
         Ranks current population based on fitness score (Fitness score = (# of HC violations))
 
         Returns:
@@ -138,14 +133,18 @@ class GeneticAlgorithm:
         for i in range(0, len(population)):
             # hashmap of index and fitness scores
             fitnessResults[i] = Fitness(population[i]).scheduleFitness()
-        return sorted(fitnessResults.items(), key=operator.itemgetter(1))
+
+        result = sorted(fitnessResults.items(), key=operator.itemgetter(1))
+        self.stat.append(result)
+
+        return result
 
     def selection(self):
-        """ 
+        """
         Selects the best of the best in population based on eliteSize
 
         Returns:
-        selectionResults (Array): An array with the top {eliteSize} chromosome's index and scores in tuple form (index, fitness score) 
+        selectionResults (Array): An array with the top {eliteSize} chromosome's index and scores in tuple form (index, fitness score)
         """
         selectionResults = []
         popRanked = self.rankSchedule()
@@ -153,9 +152,11 @@ class GeneticAlgorithm:
         for i in range(0, self.eliteSize):
             selectionResults.append(popRanked[i][0])
 
+        self.stat.append(selectionResults)
+
         return selectionResults
 
-    def breedPopulation(self):
+    def breedPopulation(self, dirty_status=False):
         """
         Creates pools for mating based on selection results
 
@@ -163,7 +164,20 @@ class GeneticAlgorithm:
         nextGenPop (Array): Next-gen population with BOB + Schedules that has been crossbred (cross-over)
         """
         matingpool = self.selection()  # best of the best (BOB)
-        length = self.popSize - self.eliteSize  # num of population - len(selected)
+
+        # clean/dirty mating pool
+        if dirty_status:
+            matingpool = matingpool[0:int(0.75 * self.eliteSize)]  # 75% of BOB
+            for i in range(0, int(0.25 * self.eliteSize)):  # appending 25% of random
+                while True:
+                    rand_value = random.randint(0, self.popSize - 1)
+                    if random.randint(0, self.popSize - 1) not in matingpool:
+                        continue
+                    else:
+                        matingpool.append(rand_value)
+                        break
+        # num of population - len(selected)
+        length = self.popSize - self.eliteSize
         nextGenPop = []
 
         # Create separate pool to work with mating pool
@@ -183,9 +197,9 @@ class GeneticAlgorithm:
         return nextGenPop
 
     def breed(self, parent1_index, parent2_index):
-        """ 
+        """
         ***Crossover function***
-        Takes the courses, instructor id, and roomid  from parent 1 
+        Takes the courses, instructor id, and roomid  from parent 1
         Match with day and time from parent 2
 
         Parameters:
@@ -219,22 +233,24 @@ class GeneticAlgorithm:
         return child
 
     def mutate(self, child):
-        """ 
+        """
         Mutates individual child based on mutation rate
         If random.random <= mutation rate, mutate child
         Randomly assigns a course, instructor, room block with a day, time that's not being used to 5 timeblocks
-        
+
         Parameter:
         child (Schedule): Child Schedule instance that will be mutated
 
         Return:
         child (Schedule): Mutated child schedule or untouched child schedule
         """
+        NUM_OF_MUTATATION = 5
+
         if random.random() <= self.mutationRate:
             child_timeblock_list = child.get_timeblock_list()
             temp_crn_ins_rm = []
 
-            for i in range(0, 5):
+            for i in range(0, NUM_OF_MUTATATION):
                 random_child_index = random.randint(
                     0,
                     len(child_timeblock_list) - 1)
@@ -271,24 +287,25 @@ class GeneticAlgorithm:
         else:
             return child
 
-    def mutatePopulation(self, nextGenPopulation):
-        """ 
+    def mutatePopulation(self, next_gen_pop):
+        """
         Mutates the crossover portion of the population
 
         Parameters:
-        nextGenPopulation (Array[Schedule])
+        next_gen_pop (Array[Schedule])
 
         Returns:
-        nextGenPopulation (Array[Schedule]): Mutated nextGenPopulation population
+        next_gen_pop (Array[Schedule]): Mutated next_gen_pop population
         """
-        for index in range(0, len(nextGenPopulation)):
-            nextGenPopulation[index] = self.mutate(nextGenPopulation[index])
+        for index in range(0, len(next_gen_pop)):
+            next_gen_pop[index] = self.mutate(
+                next_gen_pop[index])
 
-        return nextGenPopulation  # Returns mutated children
+        return next_gen_pop  # Returns mutated children
 
-    def generate_NextGenPop(self):
+    def generate_NextGenPop_clean(self):
         """
-        Generates the next generation's population, automatically runs selection/crossover/mutation functions in class
+        Generates the next "clean" generation's population, automatically runs selection/crossover/mutation functions in class
 
         Returns:
         nextGeneration(Array[Schedules]): Next generation of schedules
@@ -297,50 +314,172 @@ class GeneticAlgorithm:
         nextGenPop = self.breedPopulation()
         # Step 4: Mutates Crossovered population based on mutation rate
         nextGeneration = self.mutatePopulation(nextGenPop)
-        return nextGeneration
+
+        return nextGeneration, self.stat
+
+    def generate_NextGenPop_dirty(self):
+        """
+        Generates the next "dirty" generation's population, automatically runs selection/crossover/mutation functions in class
+
+        Returns:
+        nextGeneration(Array[Schedules]): Next generation of schedules
+        """
+        # Step 1, 2, 3: Finds BOB (Selection) + Crossover for next-gen population
+        nextGenPop = self.breedPopulation(True)
+        # Step 4: Mutates Crossovered population based on mutation rate
+        nextGeneration = self.mutatePopulation(nextGenPop)
+
+        return nextGeneration, self.stat
+
+
+def create_log(gen_depth, time, stats, filename, index=None, status=None):
+    """ Creates a log entry for current generation """
+    if filename == "depth_log.txt":
+        if gen_depth == 1:
+            with open(filename, "w") as txt_file:
+                txt_file.write("------Depth " +
+                               str(gen_depth) + "------\n")
+                txt_file.write("(Ranking)---\n")
+                txt_file.write(str(stats[0]) + "\n")
+                txt_file.write("(Selection)---\n")
+                txt_file.write(str(stats[1]) + "\n")
+                txt_file.write("Time: " + str(time) + "\n\n")
+        else:
+            if status == "dirty":
+                with open(filename, "a") as txt_file:
+                    txt_file.write("Time (Dirty): " + str(time) + "\n\n")
+            else:
+                with open(filename, "a") as txt_file:
+                    txt_file.write("------Depth " + str(gen_depth) +
+                                   " Node " + str(index) + " ------\n")
+                    txt_file.write("(Ranking)---\n")
+                    txt_file.write(str(stats[0]) + "\n")
+                    txt_file.write("(Selection)---\n")
+                    txt_file.write(str(stats[1]) + "\n")
+                    txt_file.write("Time (Clean): " + str(time) + "\n")
+    if filename == "ga_log.txt":
+        if gen_depth == 0:
+            with open(filename, "w") as txt_file:
+                txt_file.write("------Generation " +
+                               str(gen_depth + 1) + "------\n")
+                txt_file.write("(Ranking)---\n")
+                txt_file.write(str(stats[0]) + "\n")
+                txt_file.write("(Selection)---\n")
+                txt_file.write(str(stats[1]) + "\n")
+                txt_file.write("Time: " + str(time) + "\n\n")
+        else:
+            with open(filename, "a") as txt_file:
+                txt_file.write("------Generation " +
+                               str(gen_depth + 1) + "------\n")
+                txt_file.write("(Ranking)---\n")
+                txt_file.write(str(stats[0]) + "\n")
+                txt_file.write("(Selection)---\n")
+                txt_file.write(str(stats[1]) + "\n")
+                txt_file.write("Time: " + str(time) + "\n\n")
 
 
 if __name__ == "__main__":
-    POPULATION_SIZE = 100
-    ELITE_SIZE = 20
-    MUTATION_RATE = 0.4
-    GENERATIONS = 25
+    POP_SIZE = 100
+    ELITE_SIZE = int(POP_SIZE * 0.2)
+    MUTATION_RATE = 0.25
 
-    nextGenPopulation = None
+    GA_TERMINATION_CRITERION = 10
 
-    for i in range(0, GENERATIONS):
-        print("gen", str(i + 1), "in progress")
-        if i == 0:  # For first generation
-            tt_ga = GeneticAlgorithm(POPULATION_SIZE, ELITE_SIZE,
+    IDS_DEPTH_LIMIT_MULTIPLIER = 20
+    IDS_TERMINATION_RATIO = 0.2
+    USE_IDS = True
+
+    ids_termination_criterion = False
+    depth_count = 0
+    next_gen_pop = []
+    temp_next_gen_pop = []  # Container for temp population storage
+    initial_fitness = None  # Comparison for termination criterion
+
+    if USE_IDS:
+         # for each layer/depth level, append each node/population into next_gen_pop
+        while ids_termination_criterion is False:
+            next_gen_pop = temp_next_gen_pop
+            temp_next_gen_pop = []  # resets temp container
+            depth_count += 1
+
+            if depth_count is 1:
+                print("Depth", str(depth_count), "in progress")
+                s_time = time()
+                tt_ga = GeneticAlgorithm(POP_SIZE, ELITE_SIZE,
+                                         MUTATION_RATE)
+                # Mating pool 1
+                results = tt_ga.generate_NextGenPop_clean()
+                temp_next_gen_pop.append(results[0])
+                stats = results[1]
+                initial_fitness = stats[0][0][1]
+                create_log(depth_count, time() -
+                           s_time, stats, "depth_log.txt")
+                # Mating pool 2
+                results_1 = tt_ga.generate_NextGenPop_dirty()
+                temp_next_gen_pop.append(results_1[0])
+                stats = results_1[1]
+                create_log(depth_count, time() -
+                           s_time, stats, "depth_log.txt")
+            else:
+                for i, pop in enumerate(next_gen_pop):
+                    s_time = time()
+                    print("Depth", str(depth_count),
+                          "Node", str(i), "in progress")
+                    del tt_ga
+                    tt_ga = GeneticAlgorithm(POP_SIZE, ELITE_SIZE,
+                                             MUTATION_RATE, pop)
+
+                    # Mating pool 1
+                    results = tt_ga.generate_NextGenPop_clean()
+                    temp_next_gen_pop.append(results[0])
+                    stats = results[1]
+                    create_log(depth_count, time() - s_time,
+                               stats, "depth_log.txt", i, "clean")
+                    if (1 - (stats[0][0][1] / initial_fitness) > IDS_TERMINATION_RATIO):
+                        ids_termination_criterion = True
+                        print("IDS Termination Criterion fulfilled---")
+                        print("Current Depth:", str(depth_count))
+                        print("Current Node:", str(i))
+                        next_gen_pop = results[0]
+                        stats = stats
+                        break
+
+                    # Mating pool 2
+                    s_time = time()
+                    results_1 = tt_ga.generate_NextGenPop_dirty()
+                    temp_next_gen_pop.append(results_1[0])
+                    stats_1 = results_1[1]
+                    create_log(depth_count, time() - s_time,
+                               stats_1, "depth_log.txt", i, "dirty")
+                    if (1 - (stats_1[0][0][1] / initial_fitness) > IDS_TERMINATION_RATIO):
+                        ids_termination_criterion = True
+                        print("IDS Termination Criterion fulfilled---")
+                        print("Current Depth:", str(depth_count))
+                        print("Current Node:", str(i))
+                        next_gen_pop = results_1[0]
+                        stats = stats_1
+                        break
+
+    gen_count = 0
+
+    while stats[0][0][1] > GA_TERMINATION_CRITERION:
+        s_time = time()
+        print("Generation", str(gen_count + 1), "in progress")
+        if next_gen_pop == []:  # For first generation
+            tt_ga = GeneticAlgorithm(POP_SIZE, ELITE_SIZE,
                                      MUTATION_RATE)
-            nextGenPopulation = tt_ga.generate_NextGenPop()
-            with open("log.txt", "w") as txt_file:
-                txt_file.write("---Generation " + str(i) + "---\n")
-                txt_file.write("Ranking\n")
-                txt_file.write(str(tt_ga.rankSchedule()) + "\n")
-                txt_file.write("Selection\n")
-                txt_file.write(str(tt_ga.selection()) + "\n\n")
+            results = tt_ga.generate_NextGenPop_clean()
+            next_gen_pop = results[0]
+            stats = results[1]
         else:
             del tt_ga
-            tt_ga = GeneticAlgorithm(POPULATION_SIZE, ELITE_SIZE,
-                                     MUTATION_RATE, nextGenPopulation)
-            nextGenPopulation = tt_ga.generate_NextGenPop()
-            with open("log.txt", "a") as txt_file:
-                txt_file.write("---Generation " + str(i) + "---\n")
-                txt_file.write("Ranking\n")
-                txt_file.write(str(tt_ga.rankSchedule()) + "\n")
-                txt_file.write("Selection\n")
-                txt_file.write(str(tt_ga.selection()) + "\n\n")
+            tt_ga = GeneticAlgorithm(POP_SIZE, ELITE_SIZE,
+                                     MUTATION_RATE, next_gen_pop)
+            results = tt_ga.generate_NextGenPop_clean()
+            next_gen_pop = results[0]
+            stats = results[1]
+        create_log(i, time() - s_time, stats, "ga_log.txt")
+        gen_count += 1
 
-    # print(ga1.showPopulation()[0].display_schedule())
-    # print(tt_ga.rankSchedule())
-    # print(tt_ga.selection())
-    # children = tt_ga.breedPopulation()
-    # mutatePop = tt_ga.mutatePopulation(children)
-    # print(children[-1].display_schedule())
-
-    # ga2 = GeneticAlgorithm(POPULATION_SIZE, ELITE_SIZE, MUTATION_RATE,
-    #                        GENERATIONS, children)
-    # print(ga2.rankSchedule())
-    # print(ga2.selection())
-    # ga1.population[children[0]].display_schedule()
+    print("GA Termination Criterion fulfilled---")
+    print("Generation count: ", str(gen_count))

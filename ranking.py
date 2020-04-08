@@ -31,19 +31,19 @@ def match_pref(instructors, ins_course_table, score):
                 # segment[2] - room in the time table
                 # segment[2][0] - campus
                 if ins_pref[0]["location"]["like"] == segment[2][0]:
-                    score += 1
+                    score -= 1
                 # match location - dislike
                 if ins_pref[0]["location"]["dislike"] == segment[2][0]:
-                    score -= 1
+                    score += 1
 
                 # match time block - like
                 time_str = str(segment[3]) + str(segment[4])
                 if time_str in ins_pref[1]["time"]["like"]:
-                    score += 1
+                    score -= 1
 
                 # match time block - dislike
                 if time_str in ins_pref[1]["time"]["dislike"]:
-                    score -= 1
+                    score += 1
 
     return score
 
@@ -65,8 +65,7 @@ def score_time_table():
     # Match preferences
     score = match_pref(instructors, ins_course_table, score)
 
-    # Output score
-    print("Total score of the time table is: " + str(score))
+    return score
 
 
 def main():
