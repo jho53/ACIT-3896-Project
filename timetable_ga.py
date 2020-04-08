@@ -384,16 +384,16 @@ if __name__ == "__main__":
     MUTATION_RATE = 0.25
 
     GA_TERMINATION_CRITERION = 10
-
-    IDS_DEPTH_LIMIT_MULTIPLIER = 20
     IDS_TERMINATION_RATIO = 0.2
-    USE_IDS = True
+    USE_IDS = False
 
     ids_termination_criterion = False
     depth_count = 0
     next_gen_pop = []
     temp_next_gen_pop = []  # Container for temp population storage
     initial_fitness = None  # Comparison for termination criterion
+
+    stats = [[[0, 999]]]
 
     if USE_IDS:
          # for each layer/depth level, append each node/population into next_gen_pop
@@ -478,7 +478,7 @@ if __name__ == "__main__":
             results = tt_ga.generate_NextGenPop_clean()
             next_gen_pop = results[0]
             stats = results[1]
-        create_log(i, time() - s_time, stats, "ga_log.txt")
+        create_log(gen_count, time() - s_time, stats, "ga_log.txt")
         gen_count += 1
 
     print("GA Termination Criterion fulfilled---")
