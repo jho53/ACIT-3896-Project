@@ -3,6 +3,7 @@ import random
 import operator
 import pandas as pd
 import matplotlib.pyplot as plt
+import ranking
 
 from schedule_structure.schedule import Schedule
 from hardreq_validation import hardreq_validation
@@ -16,7 +17,7 @@ class Fitness:
 
     def rank(self):
         # Calculate the total ranking score of the schedule
-        self.ranking = 12345
+        self.ranking = ranking.score_time_table()
         return self.ranking
 
     def scheduleFitness(self):

@@ -1,4 +1,5 @@
 import json
+import make_crn_block
 
 # pref in Json file is follow format:
 # [{"location": {"like": "", "disklike": ""}}, {"time": {"like": "xx,xx,xx", "dislike": "xx"}}]
@@ -70,6 +71,7 @@ def score_time_table():
 
 
 def main():
+    make_crn_block.make_new_timetable()
     score_time_table()
 
 
