@@ -332,7 +332,7 @@ class GeneticAlgorithm:
         return nextGeneration, self.stat
 
 
-def create_log(gen_depth, time, stats, filename, index=None, status=None):
+def create_log(gen_depth, init_time, curr_time, stats, filename, index=None, status=None):
     """ Creates a log entry for current generation """
     if filename == "depth_log.txt":
         if gen_depth == 1:
@@ -343,11 +343,11 @@ def create_log(gen_depth, time, stats, filename, index=None, status=None):
                 txt_file.write(str(stats[0]) + "\n")
                 txt_file.write("(Selection)---\n")
                 txt_file.write(str(stats[1]) + "\n")
-                txt_file.write("Time: " + str(time) + "\n\n")
+                txt_file.write("Time: " + str(curr_time) + "\n\n")
         else:
             if status == "dirty":
                 with open(filename, "a") as txt_file:
-                    txt_file.write("Time (Dirty): " + str(time) + "\n\n")
+                    txt_file.write("Time (Dirty): " + str(curr_time) + "\n\n")
             else:
                 with open(filename, "a") as txt_file:
                     txt_file.write("------Depth " + str(gen_depth) +
@@ -356,7 +356,7 @@ def create_log(gen_depth, time, stats, filename, index=None, status=None):
                     txt_file.write(str(stats[0]) + "\n")
                     txt_file.write("(Selection)---\n")
                     txt_file.write(str(stats[1]) + "\n")
-                    txt_file.write("Time (Clean): " + str(time) + "\n")
+                    txt_file.write("Time (Clean): " + str(curr_time) + "\n")
     if filename == "ga_log.txt":
         if gen_depth == 0:
             with open(filename, "w") as txt_file:
@@ -366,7 +366,7 @@ def create_log(gen_depth, time, stats, filename, index=None, status=None):
                 txt_file.write(str(stats[0]) + "\n")
                 txt_file.write("(Selection)---\n")
                 txt_file.write(str(stats[1]) + "\n")
-                txt_file.write("Time: " + str(time) + "\n\n")
+                txt_file.write("Time: " + str(curr_time) + "\n\n")
         else:
             with open(filename, "a") as txt_file:
                 txt_file.write("------Generation " +
@@ -375,7 +375,33 @@ def create_log(gen_depth, time, stats, filename, index=None, status=None):
                 txt_file.write(str(stats[0]) + "\n")
                 txt_file.write("(Selection)---\n")
                 txt_file.write(str(stats[1]) + "\n")
-                txt_file.write("Time: " + str(time) + "\n\n")
+                txt_file.write("Time: " + str(curr_time) + "\n\n")
+    if filename == "depth_log.csv":
+        if gen_depth == 1:
+            with open(filename, "w", newline='') as csv_file:
+                writer = csv.writer(csv_file)
+                writer.writerow(["Depth", "Node", "Type", "Ranking", "BOBs",
+                                 "Time for Generation", "Time since Initiation"])
+                writer.writerow([gen_depth, index, status, stats[0],
+                                 stats[1], curr_time, init_time])
+        else:
+            with open(filename, "a", newline='') as csv_file:
+                writer = csv.writer(csv_file)
+                writer.writerow([str(gen_depth), index, status, stats[0],
+                                 stats[1], curr_time, init_time])
+    if filename == "ga_log.csv":
+        if gen_depth == 0:
+            with open(filename, "w", newline='') as csv_file:
+                writer = csv.writer(csv_file)
+                writer.writerow(["Generation", "Ranking", "BOBs",
+                                 "Time for Generation", "Time since Initiation"])
+                writer.writerow(
+                    [gen_depth + 1, stats[0], stats[1], curr_time, init_time])
+        else:
+            with open(filename, "a", newline='') as csv_file:
+                writer = csv.writer(csv_file)
+                writer.writerow(
+                    [gen_depth + 1, stats[0], stats[1], curr_time, init_time])
 
 
 if __name__ == "__main__":
@@ -395,6 +421,9 @@ if __name__ == "__main__":
 
     stats = [[[0, 999]]]
 
+    reset_stat = []
+    init_time = time()
+
     if USE_IDS:
          # for each layer/depth level, append each node/population into next_gen_pop
         while ids_termination_criterion is False:
@@ -412,14 +441,36 @@ if __name__ == "__main__":
                 temp_next_gen_pop.append(results[0])
                 stats = results[1]
                 initial_fitness = stats[0][0][1]
-                create_log(depth_count, time() -
-                           s_time, stats, "depth_log.txt")
+                create_log(depth_count, time() - init_time, time() -
+                           s_time, stats, "depth_log.csv")
                 # Mating pool 2
                 results_1 = tt_ga.generate_NextGenPop_dirty()
                 temp_next_gen_pop.append(results_1[0])
                 stats = results_1[1]
-                create_log(depth_count, time() -
-                           s_time, stats, "depth_log.txt")
+                create_log(depth_count, time() - init_time, time() -
+                           s_time, stats, "depth_log.csv")
+            elif (depth_count % 5) is 0:
+                # Resets IDS node population every 4 depth
+                print("Depth", str(depth_count), "in progress")
+                s_time = time()
+                min_index = reset_stat.index(min(reset_stat))
+                reset_pop = next_gen_pop[min_index]
+
+                # Mating pool 1
+                results = tt_ga.generate_NextGenPop_clean()
+                temp_next_gen_pop.append(results[0])
+                stats = results[1]
+                initial_fitness = stats[0][0][1]
+                create_log(depth_count, time() - init_time, time() -
+                           s_time, stats, "depth_log.csv")
+
+                # Mating pool 2
+                results_1 = tt_ga.generate_NextGenPop_dirty()
+                temp_next_gen_pop.append(results_1[0])
+                stats = results_1[1]
+                create_log(depth_count, time() - init_time, time() -
+                           s_time, stats, "depth_log.csv")
+
             else:
                 for i, pop in enumerate(next_gen_pop):
                     s_time = time()
@@ -433,8 +484,10 @@ if __name__ == "__main__":
                     results = tt_ga.generate_NextGenPop_clean()
                     temp_next_gen_pop.append(results[0])
                     stats = results[1]
-                    create_log(depth_count, time() - s_time,
-                               stats, "depth_log.txt", i, "clean")
+                    create_log(depth_count, time() - init_time, time() - s_time,
+                               stats, "depth_log.csv", i, "clean")
+                    if (depth_count % 4) is 0:
+                        reset_stat.append(stats[0][0][1])
                     if (1 - (stats[0][0][1] / initial_fitness) > IDS_TERMINATION_RATIO):
                         ids_termination_criterion = True
                         print("IDS Termination Criterion fulfilled---")
@@ -449,8 +502,10 @@ if __name__ == "__main__":
                     results_1 = tt_ga.generate_NextGenPop_dirty()
                     temp_next_gen_pop.append(results_1[0])
                     stats_1 = results_1[1]
-                    create_log(depth_count, time() - s_time,
-                               stats_1, "depth_log.txt", i, "dirty")
+                    if (depth_count % 4) is 0:
+                        reset_stat.append(stats_1[0][0][1])
+                    create_log(depth_count, time() - init_time, time() - s_time,
+                               stats_1, "depth_log.csv", i, "dirty")
                     if (1 - (stats_1[0][0][1] / initial_fitness) > IDS_TERMINATION_RATIO):
                         ids_termination_criterion = True
                         print("IDS Termination Criterion fulfilled---")
@@ -461,6 +516,7 @@ if __name__ == "__main__":
                         break
 
     gen_count = 0
+    init_time = time()
 
     while stats[0][0][1] > GA_TERMINATION_CRITERION:
         s_time = time()
@@ -478,7 +534,8 @@ if __name__ == "__main__":
             results = tt_ga.generate_NextGenPop_clean()
             next_gen_pop = results[0]
             stats = results[1]
-        create_log(gen_count, time() - s_time, stats, "ga_log.txt")
+        create_log(gen_count, time() - init_time,
+                   time() - s_time, stats, "ga_log.csv")
         gen_count += 1
 
     print("GA Termination Criterion fulfilled---")
