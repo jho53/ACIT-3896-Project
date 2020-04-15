@@ -49,8 +49,8 @@ def match_pref(instructors, ins_course_table, score):
 
 
 # Ranking the time table
-def score_time_table():
-
+def score_time_table(ins_course_schedule):
+    print(ins_course_schedule)
     # initial score
     score = 0
 
@@ -58,19 +58,9 @@ def score_time_table():
     with open("ins_file.json", "r") as ins_data:
         instructors = json.load(ins_data)
 
-    # Load time table
-    with open('ins_course.json', "r") as timeTable_data:
-        ins_course_table = json.load(timeTable_data)
-
     # Match preferences
-    score = match_pref(instructors, ins_course_table, score)
+    score = match_pref(instructors, ins_course_schedule, score)
 
     return score
 
 
-def main():
-    score_time_table()
-
-
-if __name__ == "__main__":
-    main()

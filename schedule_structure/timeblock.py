@@ -20,6 +20,11 @@ class Timeblock:
         return (self._crn, self._ins_id, self._rm_id, self._day,
                 self._timeslot)
 
+    def get_time_block_2(self):
+        '''Get timeblock in list format'''
+        return [self._crn, self._ins_id, self._rm_id, self._day,
+                self._timeslot]
+
     def get_crn(self):
         """Returns CRN"""
         return self._crn
