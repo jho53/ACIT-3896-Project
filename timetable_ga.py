@@ -577,7 +577,171 @@ if __name__ == "__main__":
     ga_log_name = "ga_log_pop" + str(POP_SIZE) + ".csv"
     depth_log_name = "depth_log_pop" + str(POP_SIZE) + ".csv"
 
-    SCHEDULE_FILE_NAME = "schedule_log_" + "0" + ".txt"
+    SCHEDULE_FILE_NAME = "schedule_log_pop" + str(POP_SIZE) + ".txt"
+
+    if USE_IDS:
+         # for each layer/depth level, append each node/population into next_gen_pop
+        while ids_termination_criterion is False:
+            if time() - init_time > 4800:
+                break
+            next_gen_pop = temp_next_gen_pop
+            temp_next_gen_pop = []  # resets temp container
+            depth_count += 1
+
+            if depth_count is 1:
+                print("Depth", str(depth_count), "in progress")
+                s_time = time()
+                tt_ga = GeneticAlgorithm(POP_SIZE, ELITE_SIZE,
+                                         MUTATION_RATE)
+                # Mating pool 1
+                results = tt_ga.generate_NextGenPop_clean()
+                temp_next_gen_pop.append(results[0])
+                stats = results[1]
+                initial_fitness = stats[0][0][1]
+                create_log(depth_count, time() - init_time, time() -
+                           s_time, stats, depth_log_name)
+                # Mating pool 2
+                results_1 = tt_ga.generate_NextGenPop_dirty()
+                temp_next_gen_pop.append(results_1[0])
+                stats = results_1[1]
+                create_log(depth_count, time() - init_time, time() -
+                           s_time, stats, depth_log_name)
+            elif (depth_count % 5) is 0:
+                # Resets IDS node population every 4 depth
+                print("Depth", str(depth_count), "in progress")
+                s_time = time()
+                min_index = reset_stat.index(min(reset_stat))
+                reset_pop = next_gen_pop[min_index]
+
+                # Mating pool 1
+                results = tt_ga.generate_NextGenPop_clean()
+                temp_next_gen_pop.append(results[0])
+                stats = results[1]
+                initial_fitness = stats[0][0][1]
+                create_log(depth_count, time() - init_time, time() -
+                           s_time, stats, depth_log_name)
+
+                # Mating pool 2
+                results_1 = tt_ga.generate_NextGenPop_dirty()
+                temp_next_gen_pop.append(results_1[0])
+                stats = results_1[1]
+                create_log(depth_count, time() - init_time, time() -
+                           s_time, stats, depth_log_name)
+
+            else:
+                for i, pop in enumerate(next_gen_pop):
+                    s_time = time()
+                    print("Depth", str(depth_count),
+                          "Node", str(i), "in progress")
+                    del tt_ga
+                    tt_ga = GeneticAlgorithm(POP_SIZE, ELITE_SIZE,
+                                             MUTATION_RATE, pop)
+
+                    # Mating pool 1
+                    results = tt_ga.generate_NextGenPop_clean()
+                    temp_next_gen_pop.append(results[0])
+                    stats = results[1]
+                    create_log(depth_count, time() - init_time, time() - s_time,
+                               stats, depth_log_name, i, "clean")
+                    if (depth_count % 5) is 4:
+                        reset_stat.append(stats[0][0][1])
+                    if (1 - (stats[0][0][1] / initial_fitness) > IDS_TERMINATION_RATIO):
+                        ids_termination_criterion = True
+                        print("IDS Termination Criterion fulfilled---")
+                        print("Current Depth:", str(depth_count))
+                        print("Current Node:", str(i))
+                        next_gen_pop = results[0]
+                        stats = stats
+                        break
+
+                    # Mating pool 2
+                    s_time = time()
+                    results_1 = tt_ga.generate_NextGenPop_dirty()
+                    temp_next_gen_pop.append(results_1[0])
+                    stats_1 = results_1[1]
+                    if (depth_count % 5) is 4:
+                        reset_stat.append(stats_1[0][0][1])
+                    create_log(depth_count, time() - init_time, time() - s_time,
+                               stats_1, depth_log_name, i, "dirty")
+                    if (1 - (stats_1[0][0][1] / initial_fitness) > IDS_TERMINATION_RATIO):
+                        ids_termination_criterion = True
+                        print("IDS Termination Criterion fulfilled---")
+                        print("Current Depth:", str(depth_count))
+                        print("Current Node:", str(i))
+                        next_gen_pop = results_1[0]
+                        stats = stats_1
+                        break
+    else:
+        gen_count = 0
+
+        while stats[0][0][1] > GA_TERMINATION_CRITERION:
+            if time() - init_time > 4800:
+                break
+            s_time = time()
+            print("Generation", str(gen_count + 1), "in progress")
+            if next_gen_pop == []:  # For first generation
+                tt_ga = GeneticAlgorithm(POP_SIZE, ELITE_SIZE,
+                                         MUTATION_RATE)
+                results = tt_ga.generate_NextGenPop_clean()
+                next_gen_pop = results[0]
+                stats = results[1]
+            else:
+                del tt_ga
+                tt_ga = GeneticAlgorithm(POP_SIZE, ELITE_SIZE,
+                                         MUTATION_RATE, next_gen_pop)
+                results = tt_ga.generate_NextGenPop_clean()
+                next_gen_pop = results[0]
+                stats = results[1]
+            create_log(gen_count, time() - init_time,
+                       time() - s_time, stats, ga_log_name)
+            gen_count += 1
+
+        for i, schedule in enumerate(next_gen_pop):
+            if score_time_table(schedule) is 0 and i is 0:
+                with open(SCHEDULE_FILE_NAME, "w") as txt_file:
+                    txt_file.write("------Schedule " + str(i) + " ------\n")
+                    for timeblock in schedule.get_timeblock_list():
+                        txt_file.write("[%s, %s, %s, %s, %s]\n" % (
+                            timeblock[0], timeblock[1], timeblock[2], timeblock[3], timeblock[4]))
+                    txt_file.write("\n")
+            else:
+                with open(SCHEDULE_FILE_NAME, "a") as txt_file:
+                    txt_file.write("------Schedule " + str(i) + " ------\n")
+                    for timeblock in schedule.get_timeblock_list():
+                        txt_file.write("[%s, %s, %s, %s, %s]\n" % (
+                            timeblock[0], timeblock[1], timeblock[2], timeblock[3], timeblock[4]))
+                    txt_file.write("\n")
+        print("GA Termination Criterion fulfilled---")
+        print("Generation count: ", str(gen_count))
+
+
+def generate_data(size, ids):
+    POP_SIZE = size
+    ELITE_SIZE = int(POP_SIZE * 0.2)
+    MUTATION_RATE = 0.15
+
+    GA_TERMINATION_CRITERION = 0
+    IDS_TERMINATION_RATIO = 0.2
+
+    ids_termination_criterion = False
+    depth_count = 0
+    next_gen_pop = []
+    temp_next_gen_pop = []  # Container for temp population storage
+    initial_fitness = None  # Comparison for termination criterion
+
+    stats = [[[0, 999]]]
+    reset_stat = []
+    init_time = time()
+
+    USE_IDS = ids
+
+    # depth_log_name = "depth_log.csv"
+    # ga_log_name = "ga_log.csv"
+
+    ga_log_name = "ga_log_pop" + str(POP_SIZE) + ".csv"
+    depth_log_name = "depth_log_pop" + str(POP_SIZE) + ".csv"
+
+    SCHEDULE_FILE_NAME = "schedule_log_pop" + str(POP_SIZE) + ".txt"
 
     if USE_IDS:
          # for each layer/depth level, append each node/population into next_gen_pop

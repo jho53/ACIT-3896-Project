@@ -1,28 +1,13 @@
-import json
+import timetable_ga as tbga
+from threading import Thread
 
-with open('ins_file.json') as json_file:
-    ins_data = json.load(json_file)
+pure_ga1 = Thread(target=tbga.generate_data, args=(100, False))
+pure_ga2 = Thread(target=tbga.generate_data, args=(500, False))
+ids_ga1 = Thread(target=tbga.generate_data, args=(100, True))
+ids_ga2 = Thread(target=tbga.generate_data, args=(500, True))
 
-temp_data = {}
-for i in ins_data:
-    temp_data[i] = ins_data[i]
-    temp_data[i]['pref'] = {
-                            "day_location": {
-                                    '1': ['D', 'B'],
-                                    '2': ['D', 'B'],
-                                    '3': ['D', 'B'],
-                                    '4': ['D', 'B'],
-                                    '5': ['D', 'B'],
-                            },
-                            "day_time": {
-                                    '1': [1, 2, 3],
-                                    '2': [1, 2, 3],
-                                    '3': [1, 2, 3],
-                                    '4': [1, 2, 3],
-                                    '5': [1, 2, 3],
-                            },
-                            }
+pure_ga1.start()
+pure_ga2.start()
+ids_ga1.start()
+ids_ga2.start()
 
-
-with open("ins_file.json", "w") as write_file:
-    json.dump(temp_data, write_file)
