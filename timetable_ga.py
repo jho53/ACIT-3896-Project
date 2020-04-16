@@ -577,6 +577,8 @@ if __name__ == "__main__":
     ga_log_name = "ga_log_pop" + str(POP_SIZE) + ".csv"
     depth_log_name = "depth_log_pop" + str(POP_SIZE) + ".csv"
 
+    SCHEDULE_FILE_NAME = "schedule_log_" + "0" + ".txt"
+
     if USE_IDS:
          # for each layer/depth level, append each node/population into next_gen_pop
         while ids_termination_criterion is False:
@@ -696,14 +698,14 @@ if __name__ == "__main__":
 
         for i, schedule in enumerate(next_gen_pop):
             if score_time_table(schedule) is 0 and i is 0:
-                with open("schedule.txt", "w") as txt_file:
+                with open(SCHEDULE_FILE_NAME, "w") as txt_file:
                     txt_file.write("------Schedule " + str(i) + " ------\n")
                     for timeblock in schedule.get_timeblock_list():
                         txt_file.write("[%s, %s, %s, %s, %s]\n" % (
                             timeblock[0], timeblock[1], timeblock[2], timeblock[3], timeblock[4]))
                     txt_file.write("\n")
             else:
-                with open("schedule.txt", "a") as txt_file:
+                with open(SCHEDULE_FILE_NAME, "a") as txt_file:
                     txt_file.write("------Schedule " + str(i) + " ------\n")
                     for timeblock in schedule.get_timeblock_list():
                         txt_file.write("[%s, %s, %s, %s, %s]\n" % (
