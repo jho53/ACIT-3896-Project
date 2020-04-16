@@ -24,23 +24,22 @@ def get_inst_pref_by_id(ins_id, instructors):
 def match_pref(instructors, ins_course_table, score):
     for instructor_id in ins_course_table:
         if has_pref(instructor_id, instructors):
+            temp_course_time = [[],[],[],[],[]]
+            temp_course_location = [[], [], [], [], []]
+            day_list = ['1', '2', '3', '4', '5']
             ins_timetable = get_inst_timetable(instructor_id, ins_course_table)
-            for segment in ins_timetable:
-                ins_pref = get_inst_pref_by_id(instructor_id, instructors)
-                # match location - like
-                # segment[2] - room in the time table
-                # segment[2][0] - campus
+            ins_pref = get_inst_pref_by_id(instructor_id, instructors)
+            for course in ins_timetable:
+                temp_course_time[course[3]-1].append(course[4])
+                temp_course_location[course[3]-1].append(course[2][0])
 
-                # match location - dislike
-                if ins_pref[0]["location"]["dislike"] == segment[2][0]:
-                    score += 1
-
-                # match time block - like
-                time_str = str(segment[3]) + str(segment[4])
-
-                # match time block - dislike
-                if time_str in ins_pref[1]["time"]["dislike"]:
-                    score += 1
+            for i in range(len(day_list)):
+                for location in temp_course_location[i]:
+                    if location not in ins_pref['day_location'][day_list[i]]:
+                        score += 1
+                for time in temp_course_time[i]:
+                    if time not in ins_pref['day_time'][day_list[i]]:
+                        score += 1
 
     return score
 
