@@ -582,7 +582,7 @@ if __name__ == "__main__":
     if USE_IDS:
          # for each layer/depth level, append each node/population into next_gen_pop
         while ids_termination_criterion is False:
-            if time() - init_time > 4800:
+            if time() - init_time > 14400:
                 break
             next_gen_pop = temp_next_gen_pop
             temp_next_gen_pop = []  # resets temp container
@@ -612,6 +612,7 @@ if __name__ == "__main__":
                 s_time = time()
                 min_index = reset_stat.index(min(reset_stat))
                 reset_pop = next_gen_pop[min_index]
+                reset_stat = []
 
                 # Mating pool 1
                 results = tt_ga.generate_NextGenPop_clean()
@@ -675,7 +676,7 @@ if __name__ == "__main__":
         gen_count = 0
 
         while stats[0][0][1] > GA_TERMINATION_CRITERION:
-            if time() - init_time > 4800:
+            if time() - init_time > 14400:
                 break
             s_time = time()
             print("Generation", str(gen_count + 1), "in progress")
@@ -746,7 +747,7 @@ def generate_data(size, ids):
     if USE_IDS:
          # for each layer/depth level, append each node/population into next_gen_pop
         while ids_termination_criterion is False:
-            if time() - init_time > 4800:
+            if time() - init_time > 14400:
                 break
             next_gen_pop = temp_next_gen_pop
             temp_next_gen_pop = []  # resets temp container
@@ -776,6 +777,7 @@ def generate_data(size, ids):
                 s_time = time()
                 min_index = reset_stat.index(min(reset_stat))
                 reset_pop = next_gen_pop[min_index]
+                reset_stat = []
 
                 # Mating pool 1
                 results = tt_ga.generate_NextGenPop_clean()
@@ -839,7 +841,7 @@ def generate_data(size, ids):
         gen_count = 0
 
         while stats[0][0][1] > GA_TERMINATION_CRITERION:
-            if time() - init_time > 4800:
+            if time() - init_time > 14400:
                 break
             s_time = time()
             print("Generation", str(gen_count + 1), "in progress")
