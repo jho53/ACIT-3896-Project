@@ -47,8 +47,6 @@ def hardreq_validation(schedule):
         Time based hard constraints are basically solved, just need to make sure dummy data is compatible
     '''
 
-    violation_count = 0
-
     timeblock_combinations = list(
         itertools.combinations(
             schedule.get_timeblock_list(),
@@ -66,7 +64,7 @@ def hardreq_validation(schedule):
                 # print(ele[0].get_time_block(), ele[1].get_time_block())
                 # print("Instructors cannot be in two rooms at once")
 
-                violation_count += 1
+                return False
 
             # Validation 2: Instructors cannot be on 2 campuses on same day
             if (ele[0].get_instructor() == ele[1].get_instructor()) and (
@@ -74,23 +72,13 @@ def hardreq_validation(schedule):
                                                    ele[1].room[0]):
                 # print(ele[0].get_time_block(), ele[1].get_time_block())
                 # print("Instructors cannot be on 2 campuses on the same day")
-                violation_count += 1
-
-            # Validation 3: Each set should only have 2 classes per day for CIT
-
-            # Validation 4: Electives must be on thursday for CIT
-
-            # Validation 5: ISSP must be on Friday for CIT for term 3 + 4
-
-            # Validation 6: Students cannot have more than 5 hour break
-
-            # Validation 7: Wednesday should always be a short day
+                return False
 
         except Exception as error:
             print(error)
             return False
 
-    return violation_count
+    return True
 
 
 if __name__ == "__main__":
