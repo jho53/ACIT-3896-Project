@@ -24,9 +24,8 @@ class Fitness:
     def checkValidation(self):
         if hardreq_validation(self.schedule) is False:
             return 999 - score_time_table(self.schedule.get_schedule())
-        else:        
+        else:
             return score_time_table(self.schedule.get_schedule())
-         
 
     def scheduleFitness(self):
         # Fitness is the lower, the better
@@ -118,7 +117,8 @@ class GeneticAlgorithm:
                 temp_day = randint(1, 5)
                 temp_time = randint(1, 3)
                 temp_rm = randint(20, 39)
-                temp_ins = course_ins[i[:-1]][(randint(1, len(course_ins[i[:-1]])) - 1)]
+                temp_ins = course_ins[i[:-1]
+                                      ][(randint(1, len(course_ins[i[:-1]])) - 1)]
 
                 temp_rm_d_t = [temp_rm, temp_day, temp_time]
                 temp_ins_time = [temp_ins, temp_day, temp_time]
@@ -129,7 +129,8 @@ class GeneticAlgorithm:
                     if loop_count > 1000:
                         return None
                     if (temp_rm_d_t in room_time) and (temp_ins_time in ins_time):
-                        temp_ins = course_ins[i[:-1]][(randint(1, len(course_ins[i[:-1]])) - 1)]
+                        temp_ins = course_ins[i[:-1]
+                                              ][(randint(1, len(course_ins[i[:-1]])) - 1)]
                         temp_day = randint(1, 5)
                         temp_time = randint(1, 3)
                         temp_rm = randint(20, 39)
@@ -138,18 +139,21 @@ class GeneticAlgorithm:
                         temp_time = randint(1, 3)
                         temp_rm = randint(20, 39)
                     elif temp_ins_time in ins_time:
-                        temp_ins = course_ins[i[:-1]][(randint(1, len(course_ins[i[:-1]])) - 1)]
+                        temp_ins = course_ins[i[:-1]
+                                              ][(randint(1, len(course_ins[i[:-1]])) - 1)]
                         temp_day = randint(1, 5)
                         temp_time = randint(1, 3)
                     else:
-                        temp_ins = course_ins[i[:-1]][(randint(1, len(course_ins[i[:-1]])) - 1)]
+                        temp_ins = course_ins[i[:-1]
+                                              ][(randint(1, len(course_ins[i[:-1]])) - 1)]
                         temp_day = randint(1, 5)
                         temp_time = randint(1, 3)
                         temp_rm = randint(20, 39)
                     temp_rm_d_t = [temp_rm, temp_day, temp_time]
                     temp_ins_time = [temp_ins, temp_day, temp_time]
             else:
-                temp_ins = course_ins[i[:-1]][(randint(1, len(course_ins[i[:-1]])) - 1)]
+                temp_ins = course_ins[i[:-1]
+                                      ][(randint(1, len(course_ins[i[:-1]])) - 1)]
                 temp_day = randint(1, 5)
                 temp_time = randint(1, 3)
                 temp_rm = randint(0, 39)
@@ -158,12 +162,13 @@ class GeneticAlgorithm:
 
                 while (temp_rm_d_t in room_time) or (temp_ins_time in ins_time) or \
                         (((ins_campus[temp_ins][temp_day] == 'D') and temp_rm < 20) or (
-                                (ins_campus[temp_ins][temp_day] == 'B') and temp_rm > 20)):
+                            (ins_campus[temp_ins][temp_day] == 'B') and temp_rm > 20)):
                     loop_count += 1
                     if loop_count > 1000:
                         return None
                     if (temp_rm_d_t in room_time) and (temp_ins_time in ins_time):
-                        temp_ins = course_ins[i[:-1]][(randint(1, len(course_ins[i[:-1]])) - 1)]
+                        temp_ins = course_ins[i[:-1]
+                                              ][(randint(1, len(course_ins[i[:-1]])) - 1)]
                         temp_day = randint(1, 5)
                         temp_time = randint(1, 3)
                         temp_rm = randint(0, 39)
@@ -172,17 +177,20 @@ class GeneticAlgorithm:
                         temp_time = randint(1, 3)
                         temp_rm = randint(0, 39)
                     elif temp_ins_time in ins_time:
-                        temp_ins = course_ins[i[:-1]][(randint(1, len(course_ins[i[:-1]])) - 1)]
+                        temp_ins = course_ins[i[:-1]
+                                              ][(randint(1, len(course_ins[i[:-1]])) - 1)]
                         temp_day = randint(1, 5)
                         temp_time = randint(1, 3)
                     else:
                         if ins_campus[temp_ins][temp_day] == 'D':
-                            temp_ins = course_ins[i[:-1]][(randint(1, len(course_ins[i[:-1]])) - 1)]
+                            temp_ins = course_ins[i[:-1]
+                                                  ][(randint(1, len(course_ins[i[:-1]])) - 1)]
                             temp_day = randint(1, 5)
                             temp_time = randint(1, 3)
                             temp_rm = randint(20, 39)
                         elif ins_campus[temp_ins][temp_day] == 'B':
-                            temp_ins = course_ins[i[:-1]][(randint(1, len(course_ins[i[:-1]])) - 1)]
+                            temp_ins = course_ins[i[:-1]
+                                                  ][(randint(1, len(course_ins[i[:-1]])) - 1)]
                             temp_day = randint(1, 5)
                             temp_time = randint(1, 3)
                             temp_rm = randint(0, 19)
@@ -253,7 +261,8 @@ class GeneticAlgorithm:
 
         for crn in temp_timetable:
             temp_data = temp_timetable[crn]
-            temp_block = Timeblock(temp_data[0], temp_data[1], temp_data[2], temp_data[3], temp_data[4])
+            temp_block = Timeblock(
+                temp_data[0], temp_data[1], temp_data[2], temp_data[3], temp_data[4])
             schedule.add_timeblock(temp_block)
 
         return schedule
@@ -685,5 +694,20 @@ if __name__ == "__main__":
                        time() - s_time, stats, ga_log_name)
             gen_count += 1
 
+        for i, schedule in enumerate(next_gen_pop):
+            if score_time_table(schedule) is 0 and i is 0:
+                with open("schedule.txt", "w") as txt_file:
+                    txt_file.write("------Schedule " + str(i) + " ------\n")
+                    for timeblock in schedule.get_timeblock_list():
+                        txt_file.write("[%s, %s, %s, %s, %s]\n" % (
+                            timeblock[0], timeblock[1], timeblock[2], timeblock[3], timeblock[4]))
+                    txt_file.write("\n")
+            else:
+                with open("schedule.txt", "a") as txt_file:
+                    txt_file.write("------Schedule " + str(i) + " ------\n")
+                    for timeblock in schedule.get_timeblock_list():
+                        txt_file.write("[%s, %s, %s, %s, %s]\n" % (
+                            timeblock[0], timeblock[1], timeblock[2], timeblock[3], timeblock[4]))
+                    txt_file.write("\n")
         print("GA Termination Criterion fulfilled---")
         print("Generation count: ", str(gen_count))
