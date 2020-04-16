@@ -24,7 +24,7 @@ def get_inst_pref_by_id(ins_id, instructors):
 def match_pref(instructors, ins_course_table, score):
     for instructor_id in ins_course_table:
         if has_pref(instructor_id, instructors):
-            temp_course_time = [[],[],[],[],[]]
+            temp_course_time = [[], [], [], [], []]
             temp_course_location = [[], [], [], [], []]
             day_list = ['1', '2', '3', '4', '5']
             ins_timetable = get_inst_timetable(instructor_id, ins_course_table)
