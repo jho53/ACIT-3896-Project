@@ -1,0 +1,5 @@
+# Validation 3: Each set should only have 2 classes per day for CIT
+# Validation 4: Electives must be on thursday for CIT
+# Validation 5: ISSP must be on Friday for CIT for term 3 + 4
+# Validation 6: Students cannot have more than 5 hour break
+# Validation 7: Wednesday should always be a short day

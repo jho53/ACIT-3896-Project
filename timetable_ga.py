@@ -19,7 +19,14 @@ class Fitness:
     def __init__(self, schedule):
         self.schedule = schedule
         # self.ranking = 0
-        self.fitness = hardreq_validation(self.schedule) + score_time_table(self.schedule.get_schedule())
+        self.fitness = self.checkValidation()
+
+    def checkValidation(self):
+        if hardreq_validation(self.schedule) is False:
+            return 999 - score_time_table(self.schedule.get_schedule())
+        else:        
+            return score_time_table(self.schedule.get_schedule())
+         
 
     def scheduleFitness(self):
         # Fitness is the lower, the better
@@ -538,9 +545,9 @@ def create_log(gen_depth, init_time, curr_time, stats, filename, index=None, sta
 if __name__ == "__main__":
     POP_SIZE = 100
     ELITE_SIZE = int(POP_SIZE * 0.2)
-    MUTATION_RATE = 0.25
+    MUTATION_RATE = 0.15
 
-    GA_TERMINATION_CRITERION = 10
+    GA_TERMINATION_CRITERION = 0
     IDS_TERMINATION_RATIO = 0.2
 
     ids_termination_criterion = False
