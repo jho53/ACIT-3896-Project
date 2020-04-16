@@ -34,6 +34,7 @@ def make_new_timetable():
         }
 
     course_ins = {}
+
     for i in ins_data:
         for j in ins_data[i]['course']:
             course_ins[j] = []
@@ -43,6 +44,7 @@ def make_new_timetable():
             course_ins[j].append(i)
 
     for i in crn_data:
+        loop_count = 0
         if i[:-3] == 'CIT':
             temp_day = randint(1, 5)
             temp_time = randint(1, 3)
@@ -53,6 +55,7 @@ def make_new_timetable():
             temp_ins_time = [temp_ins, temp_day, temp_time]
 
             while (temp_rm_d_t in room_time) or (temp_ins_time in ins_time) or (ins_campus[temp_ins][temp_day] == 'B'):
+                loop_count += 1
                 if (temp_rm_d_t in room_time) and (temp_ins_time in ins_time):
                     temp_ins = course_ins[i[:-1]][(randint(1, len(course_ins[i[:-1]])) - 1)]
                     temp_day = randint(1, 5)
@@ -83,6 +86,7 @@ def make_new_timetable():
 
             while (temp_rm_d_t in room_time) or (temp_ins_time in ins_time) or \
                     (((ins_campus[temp_ins][temp_day] == 'D') and temp_rm < 20) or ((ins_campus[temp_ins][temp_day] == 'B') and temp_rm > 20)):
+                loop_count += 1
                 if (temp_rm_d_t in room_time) and (temp_ins_time in ins_time):
                     temp_ins = course_ins[i[:-1]][(randint(1, len(course_ins[i[:-1]])) - 1)]
                     temp_day = randint(1, 5)
@@ -128,5 +132,3 @@ def make_new_timetable():
 
     with open('ins_course.json', 'w') as file:
         json.dump(ins_course, file)
-
-make_new_timetable()

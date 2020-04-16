@@ -28,9 +28,9 @@ class Schedule:
         num_ins = 40
         temp_schedule = {}
         for i in range(1, num_ins+1):
-            temp_schedule[i] = []
+            temp_schedule[str(i)] = []
 
         for timeblock in self.get_timeblock_list():
             temp_block = timeblock.get_time_block_2()
-            temp_schedule[temp_block[1]].append(temp_block)
+            temp_schedule[str(temp_block[1])].append(temp_block)
         return temp_schedule

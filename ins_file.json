@@ -25,7 +25,7 @@
       "CST17",
       "CST37"
     ],
-    "pref": []
+    "pref": [{"location": {"like": "D", "dislike": ""}}, {"time": {"like": "", "dislike": ["31","33","32"]}}]
   },
   "4": {
     "id": 4,
@@ -55,7 +55,7 @@
       "CST34",
       "CST43"
     ],
-    "pref": []
+    "pref": [{"location": {"like": "", "dislike": ""}}, {"time": {"like": ["42","12"], "dislike": ["21","33","22"]}}]
   },
   "7": {
     "id": 7,
@@ -75,7 +75,7 @@
       "CIT46",
       "CST34"
     ],
-    "pref": []
+    "pref": [{"location": {"like": "D", "dislike": ""}}, {"time": {"like": "", "dislike": ["21","33","22"]}}]
   },
   "9": {
     "id": 9,
@@ -106,7 +106,7 @@
       "CST25",
       "CST46"
     ],
-    "pref": [{"location": {"like": "", "dislike": "B"}}, {"time": {"like": "21,33,22", "dislike": "24,12"}}]
+    "pref": [{"location": {"like": "", "dislike": "B"}}, {"time": {"like": ["21","33","22"], "dislike": ["42","12"]}}]
   },
   "12": {
     "id": 12,
@@ -116,7 +116,7 @@
       "CST35",
       "CST47"
     ],
-    "pref": []
+    "pref": [{"location": {"like": "", "dislike": "D"}}, {"time": {"like": "", "dislike": ["51","53","52"]}}]
   },
   "13": {
     "id": 13,
@@ -128,7 +128,7 @@
       "CST27",
       "CST34"
     ],
-    "pref": []
+    "pref": [{"location": {"like": "D", "dislike": ""}}, {"time": {"like": ["11", "12", "13"], "dislike": ["41","43","42"]}}]
   },
   "14": {
     "id": 14,
@@ -196,7 +196,7 @@
       "CIT44",
       "CST25"
     ],
-    "pref": []
+    "pref": [{"location": {"like": "", "dislike": "B"}}, {"time": {"like": "", "dislike": ["13","33","21"]}}]
   },
   "21": {
     "id": 21,
@@ -215,7 +215,7 @@
       "CST11",
       "CST12"
     ],
-    "pref": []
+    "pref": [{"location": {"like": "", "dislike": "D"}}, {"time": {"like": "", "dislike": ["51","53","52"]}}]
   },
   "23": {
     "id": 23,
@@ -255,7 +255,7 @@
       "CIT17",
       "CST36"
     ],
-    "pref": []
+    "pref": [{"location": {"like": "", "dislike": "B"}}, {"time": {"like": "", "dislike": ["31","13","22"]}}]
   },
   "27": {
     "id": 27,
@@ -266,7 +266,7 @@
       "CST24",
       "CST36"
     ],
-    "pref": []
+    "pref": [{"location": {"like": "", "dislike": "D"}}, {"time": {"like": "", "dislike": ["51","53","52"]}}]
   },
   "28": {
     "id": 28,
@@ -306,7 +306,7 @@
       "CST44",
       "CST47"
     ],
-    "pref": []
+    "pref": [{"location": {"like": "D", "dislike": ""}}, {"time": {"like": ["31", "32", "33"], "dislike": ["41","43","42"]}}]
   },
   "32": {
     "id": 32,
